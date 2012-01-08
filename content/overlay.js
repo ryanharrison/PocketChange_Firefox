@@ -5,7 +5,7 @@ var Helloworld = {
   },
 
   onMenuItemCommand: function() {
-    window.open("chrome://helloworld/content/hello.xul", "", "chrome");
+    window.open("chrome://pocketchange/content/hello.xul", "", "chrome");
   },
 
   testFunction: function() {
