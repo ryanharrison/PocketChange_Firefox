@@ -1,7 +1,7 @@
-content	pocketchange	content/
-overlay	chrome://browser/content/browser.xul chrome://pocketchange/content/overlay.xul
+content		pocketchange					content/
+skin		pocketchange	classic/1.0 	skin/
+locale		pocketchange	en-US			locale/en-US/
+resource	pocketchange					modules/
 
-locale	pocketchange	en-US	locale/en-US/
-
-skin	pocketchange	classic/1.0 skin/
 style	chrome://global/content/customizeToolbar.xul	chrome://pocketchange/skin/overlay.css
+overlay	chrome://browser/content/browser.xul chrome://pocketchange/content/overlay.xul

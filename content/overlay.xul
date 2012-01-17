@@ -1,9 +1,8 @@
 <?xml version="1.0"?> 
 <?xml-stylesheet href="chrome://pocketchange/skin/overlay.css" type="text/css"?> 
 <!DOCTYPE overlay SYSTEM "chrome://pocketchange/locale/overlay.dtd"> 
-<overlay id="helloworld-overlay" 
-    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"> 
-  <script src="overlay.js"/> 
+<overlay id="pocketchange-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">	
+	<script type="application/javascript;version=1.7" src="overlay.js"/> 
 
 <!--
 	<menupopup id="menu_ToolsPopup"> 

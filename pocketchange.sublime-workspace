@@ -7,6 +7,46 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "install.rdf",
+			"settings":
+			{
+				"buffer_size": 1214,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "chrome.manifest",
+			"settings":
+			{
+				"buffer_size": 284,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "content/overlay.xul",
+			"settings":
+			{
+				"buffer_size": 538,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "content/overlay.js",
+			"settings":
+			{
+				"buffer_size": 870,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "content/hello.xul",
+			"settings":
+			{
+				"buffer_size": 360,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -32,6 +72,19 @@
 	},
 	"file_history":
 	[
+		"/Z/xmt/js/xmt.js",
+		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/content/jquery-1.7.1.js",
+		"/C/Users/RyanHarrison/AppData/Roaming/Mozilla/Firefox/Profiles/3zzqu59b.extension_dev/extensions/helloworld@mozilla.doslash_2.org",
+		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/pocketchange.sublime-project",
+		"/C/School/INFO 490/dev/extension/helloworld/skin/overlay.css",
+		"/C/School/INFO 490/dev/extension/helloworld/install.rdf",
+		"/C/School/INFO 490/dev/extension/helloworld/content/overlay.js",
+		"/C/School/INFO 490/dev/extension/helloworld/content/overlay.xul",
+		"/C/Users/RyanHarrison/AppData/Roaming/Mozilla/Firefox/Profiles/3zzqu59b.extension_dev/extensions/helloworld@mozilla.doslash.org",
+		"/C/School/INFO 490/dev/extension/helloworld/content/hello.xul",
+		"/C/School/INFO 490/dev/extension/helloworld/locale/en-US/hello.dtd",
+		"/C/School/INFO 490/dev/extension/helloworld/locale/en-US/overlay.dtd",
+		"/C/School/INFO 490/dev/extension/helloworld/chrome.manifest",
 		"/C/School/INFO 490/dev/extension/chrome.manifest",
 		"/C/School/INFO 490/dev/chrome.manifest",
 		"/C/School/INFO 490/dev/chrome/content/sample.xul",
@@ -108,8 +161,143 @@
 	"groups":
 	[
 		{
+			"selected": 4,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "install.rdf",
+					"settings":
+					{
+						"buffer_size": 1214,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								549,
+								549
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "chrome.manifest",
+					"settings":
+					{
+						"buffer_size": 284,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								75,
+								116
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "content/overlay.xul",
+					"settings":
+					{
+						"buffer_size": 538,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								308,
+								308
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "content/overlay.js",
+					"settings":
+					{
+						"buffer_size": 870,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								866,
+								866
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "content/hello.xul",
+					"settings":
+					{
+						"buffer_size": 360,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								155,
+								155
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],

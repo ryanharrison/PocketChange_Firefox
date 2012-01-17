@@ -1,13 +1,11 @@
 <?xml version="1.0"?>
-<?xml-stylesheet href="chrome://global/skin/global.css"  type="text/css"?>
-<!DOCTYPE window SYSTEM "chrome://pocketchange/locale/hello.dtd">
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 
-<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" 
-        title="&title.label;">
+<window id="findfile-window" title="Find Files" orient="horizontal" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	
+	<!-- Other elements go here -->
 
-<hbox align="center">
-  <description flex="1">&separate.label;</description>
-  <button label="&close.label;" oncommand="close();"/>
-</hbox>
+	<button id="find-button" label="Find"/>
+  	<button id="cancel-button" label="Cancel"/>
 
 </window>
