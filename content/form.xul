@@ -1,0 +1,24 @@
+<?xml version="1.0"?> 
+<?xml-stylesheet href="chrome://pocketchange/skin/form.css" type="text/css"?> 
+<!DOCTYPE overlay SYSTEM "chrome://pocketchange/locale/form.dtd"> 
+<overlay id="pocketchange-form" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">	
+	<script type="application/javascript" src="resource://pocketchange/jquery-1.7.1.js"/>
+	<script type="application/javascript;version=1.7" src="form.js"/> 
+
+<vbox>	
+
+	<label value="Order Amount" control="order-amount" />
+	<textbox id="order-amount" value="$17.02" />
+
+	<label value="Donation Rate" control="donation-rate" />
+	<textbox id="donation-rate" value="10%" />
+
+	<label value="Donation Amount" control="donation-amount" />
+	<textbox id="donation-amount" value="$1.70" />
+
+	<button label="Donate" oncommand="alert('You donated!');"/>
+	
+</vbox>
+
+
+</overlay>

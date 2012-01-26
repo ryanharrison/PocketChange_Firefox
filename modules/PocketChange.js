@@ -17,6 +17,20 @@ PocketChange.Fubar = {
 	}
 }
 
+PocketChange.FormController = {	
+	_formHeader : 'Pocket Change',
+	_orderAmount : 17.02,
+	_donationRate : 0.01,
+
+	setHeader : function(newHeader) {
+		this._formHeader = newHeader;
+	},
+
+	getHeader : function(){
+		return this._formHeader;
+	},	
+}
+
 
 
 

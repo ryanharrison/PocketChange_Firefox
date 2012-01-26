@@ -3,31 +3,51 @@
 	{
 		"selected_items":
 		[
+			[
+				"Pocket",
+				"PocketChangeChrome"
+			],
+			[
+				"Pock",
+				"PocketChangeChrome"
+			],
+			[
+				"P",
+				"PocketChangeChrome"
+			],
+			[
+				"testString",
+				"testString101"
+			],
+			[
+				"pocketchange",
+				"pocketchange"
+			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "install.rdf",
-			"settings":
-			{
-				"buffer_size": 1214,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "chrome.manifest",
-			"settings":
-			{
-				"buffer_size": 284,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "content/overlay.xul",
 			"settings":
 			{
-				"buffer_size": 538,
+				"buffer_size": 548,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "content/form.xul",
+			"settings":
+			{
+				"buffer_size": 651,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "content/form.js",
+			"settings":
+			{
+				"buffer_size": 197,
 				"line_ending": "Windows"
 			}
 		},
@@ -35,15 +55,15 @@
 			"file": "content/overlay.js",
 			"settings":
 			{
-				"buffer_size": 870,
+				"buffer_size": 1401,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "content/hello.xul",
+			"file": "modules/PocketChange.js",
 			"settings":
 			{
-				"buffer_size": 360,
+				"buffer_size": 1207,
 				"line_ending": "Windows"
 			}
 		}
@@ -72,6 +92,18 @@
 	},
 	"file_history":
 	[
+		"/C/Users/RyanHarrison/Desktop/Cursor_While_Loop.sql",
+		"/C/Users/RyanHarrison/Desktop/All_Queries.sql",
+		"/C/School/INFO 344/HVZT/FINAL/js/form.js",
+		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/chrome.manifest",
+		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/skin/form.css",
+		"/C/Users/RyanHarrison/Desktop/HelloWorld3/HelloWorld3/src/chrome/content/browserOverlay.js",
+		"/C/Users/RyanHarrison/Desktop/HelloWorld3/HelloWorld3/src/modules/messageCount.js",
+		"/C/Users/RyanHarrison/Desktop/HelloWorld3/HelloWorld3/src/modules/common.js",
+		"/C/Users/RyanHarrison/Desktop/HelloWorld3/HelloWorld3/src/chrome.manifest",
+		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/install.rdf",
+		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/content/hello.xul",
+		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/modules/test.js",
 		"/Z/xmt/js/xmt.js",
 		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/content/jquery-1.7.1.js",
 		"/C/Users/RyanHarrison/AppData/Roaming/Mozilla/Firefox/Profiles/3zzqu59b.extension_dev/extensions/helloworld@mozilla.doslash_2.org",
@@ -141,6 +173,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"translations",
 			"prep",
 			"custom_",
 			"get_translation"
@@ -151,6 +184,10 @@
 		"regex": false,
 		"replace_history":
 		[
+			"translations2",
+			"uploads",
+			"",
+			"uploads"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -161,30 +198,28 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "install.rdf",
+					"file": "content/overlay.xul",
 					"settings":
 					{
-						"buffer_size": 1214,
+						"buffer_size": 548,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								549,
-								549
+								199,
+								199
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -194,18 +229,18 @@
 				},
 				{
 					"buffer": 1,
-					"file": "chrome.manifest",
+					"file": "content/form.xul",
 					"settings":
 					{
-						"buffer_size": 284,
+						"buffer_size": 651,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								75,
-								116
+								411,
+								411
 							]
 						],
 						"settings":
@@ -220,23 +255,23 @@
 				},
 				{
 					"buffer": 2,
-					"file": "content/overlay.xul",
+					"file": "content/form.js",
 					"settings":
 					{
-						"buffer_size": 538,
+						"buffer_size": 197,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								308,
-								308
+								185,
+								185
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -249,48 +284,56 @@
 					"file": "content/overlay.js",
 					"settings":
 					{
-						"buffer_size": 870,
+						"buffer_size": 1401,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								866,
-								866
+								41,
+								108
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": true,
+							"word_wrap": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
 				{
 					"buffer": 4,
-					"file": "content/hello.xul",
+					"file": "modules/PocketChange.js",
 					"settings":
 					{
-						"buffer_size": 360,
+						"buffer_size": 1207,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								155,
-								155
+								464,
+								464
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -318,11 +361,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -334,7 +384,7 @@
 	"menu_visible": true,
 	"replace":
 	{
-		"height": 0.0
+		"height": 62.0
 	},
 	"save_all_on_build": true,
 	"select_file":
