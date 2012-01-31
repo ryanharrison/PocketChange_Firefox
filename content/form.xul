@@ -3,9 +3,10 @@
 <!DOCTYPE overlay SYSTEM "chrome://pocketchange/locale/form.dtd"> 
 <overlay id="pocketchange-form" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">	
 	<script type="application/javascript" src="resource://pocketchange/jquery-1.7.1.js"/>
+	<script type="application/javascript" src="resource://pocketchange/PocketChange.js"/>
 	<script type="application/javascript;version=1.7" src="form.js"/> 
 
-<vbox>	
+<vbox id="form-vbox">
 
 	<label value="Order Amount" control="order-amount" />
 	<textbox id="order-amount" value="$17.02" />
@@ -18,6 +19,11 @@
 
 	<button label="Donate" oncommand="alert('You donated!');"/>
 	
+	<vbox id="project-info-container">
+		<hbox id="project-title-container"></hbox>
+		<hbox id="description-container"></hbox>
+	</vbox>
+
 </vbox>
 
 

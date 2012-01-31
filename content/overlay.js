@@ -1,5 +1,5 @@
 // is this necessary? i don't think so
-//Components.utils.import("resource://pocketchange/PocketChange.js");
+
 
 /**
  * PocketChangeChrome namespace.
@@ -16,7 +16,8 @@ PocketChangeChrome.BrowserOverlay = {
   
   init : function(e) {
     window.alert("PocketChangeChrome initialized");
-    jQuery.noConflict();    
+    jQuery.noConflict();
+    Components.utils.import("resource://pocketchange/PocketChange.js");
 
     window.addEventListener("dblclick", function(e) { PocketChangeChrome.BrowserOverlay.handleClicks(e); }, false);
   },
@@ -24,18 +25,26 @@ PocketChangeChrome.BrowserOverlay = {
   handleClicks : function(e) {
     
     var pcConsole = Components.utils.reportError;
+
+    var win = window.content;
+    //var inputTest = jQuery(win.document.getElementById("album_name")).val();
+    var localOrderAmount = jQuery(win.document).contents().find("em.price").text();
+    //localOrderAmount = parseFloat(localOrderAmount);
+    
+    PocketChange.FormController.orderAmount(localOrderAmount);
+
     /*
     jQuery.each(location, function(key, element) {
         dump('key: ' + key + '\n' + 'value: ' + element);
     });
     */
-    dump(location.href);
+    //dump(location.href);
 
     // check what was clicked
     // check what page it is
     // handle it
 
-    //PocketChangeChrome.BrowserOverlay.openForm();
+    PocketChangeChrome.BrowserOverlay.openForm();
   },
 
   openForm : function() {

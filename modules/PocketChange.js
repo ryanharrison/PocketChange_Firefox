@@ -1,7 +1,8 @@
 var EXPORTED_SYMBOLS = [ "PocketChange" ];
 
-const Cc = Components.classes;
-const Ci = Components.interfaces;
+//const Cc = Components.classes;
+//const Ci = Components.interfaces;	
+
 
 if ("undefined" == typeof(PocketChange)) {
   var PocketChange = {};
@@ -18,50 +19,71 @@ PocketChange.Fubar = {
 }
 
 PocketChange.FormController = {	
-	_formHeader : 'Pocket Change',
-	_orderAmount : 17.02,
-	_donationRate : 0.01,
+	_formHeader : 'PocketChange',
+	_orderAmount : 57.77,
+	_donationRate : 0.03,
+	// _APIKEY : "DONORSCHOOSE",
+	_APIKEY : "mvu94jd8bucx",
 
-	setHeader : function(newHeader) {
-		this._formHeader = newHeader;
+	header : function(newHeader) {
+		if ("undefined" == typeof(newHeader)) {
+			return this._formHeader;
+		} else {
+			this._formHeader = newHeader;
+		}
+	},
+		
+	orderAmount : function(newOrderAmount) {
+		if ("undefined" == typeof(newOrderAmount)) {
+			return this._orderAmount;
+		} else {
+			this._orderAmount = newOrderAmount;
+		}
 	},
 
-	getHeader : function(){
-		return this._formHeader;
-	},	
+	donationRate : function(newDonationRate) {
+		if ("undefined" == typeof(newDonationRate)) {
+			return this._donationRate;
+		} else {
+			this._donationRate = newDonationRate;
+		}
+	},
+
+	apiKey : function() {		
+		return this._APIKEY;
+	}
+
 }
 
+PocketChange.ProjectsController = {
+	_projects : new Array(),
+	_selectedProject : null,
 
+	init : function() {
+		return "test";
+	},
 
+	addProject : function(newProject) {
+		this._projects.push(newProject);
+	},
 
-// var EXPORTED_SYMBOLS = [ "PocketChange" ];
+	getProjects : function() {
+		return this._projects;
+	},
 
-// const Cc = Components.classes;
-// const Ci = Components.interfaces;
+	getProjectById : function(projectID) {
+		jQuery.each(_projects, function(key, curProject) {
+			if (curProject.id == projectID) {
+				return curProject;
+			}
+		});
+	},
 
-// if ("undefined" == typeof(PocketChange)) {
-//   var PocketChange = {};
-// };
-
-// /**
-//  * A very simple counter.
-//  */
-// PocketChange.MessageCount = {
-
-//   /* Current message count.  */
-//   _count : 0,
-
-//   /**
-//    * Returns the current message count.
-//    * @return the current message count.
-//    */
-//   get count() { return this._count; },
-
-//   /**
-//    * Increments the message count by one.
-//    */
-//   increment : function() {
-//     this._count++;
-//   }
-// };
-
+	selectedProject : function(project) {
+		if ("undefined" == typeof(project)) {
+			return this._selectedProject;
+		} else {
+			this._selectedProject = project;
+		}
+	}
+}
