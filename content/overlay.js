@@ -48,10 +48,12 @@ PocketChangeChrome.BrowserOverlay = {
   },
 
   openForm : function() {
+    var formWidth;
+    formWidth = PocketChange.FormController.width();
     window.open(
       "chrome://pocketchange/content/form.xul"
       ,"pcForm"
-      ,"chrome,width=300,height=600"
+      ,"chrome,width="+formWidth+",height=600"
     );
   },
 

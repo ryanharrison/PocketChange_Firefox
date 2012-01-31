@@ -8,23 +8,32 @@ if ("undefined" == typeof(PocketChange)) {
   var PocketChange = {};
 };
 
-PocketChange.Fubar = {
-	_rhString : 'fubar string',
+// PocketChange.Settings = {
+// 	_rhString : 'fubar string',
 
-	get rhString() { return this._rhString; },
+// 	get rhString() { return this._rhString; },
 
-	changeString : function(newString) {
-		this._rhString = newString;
-	}
-}
+// 	changeString : function(newString) {
+// 		this._rhString = newString;
+// 	}
+// }
 
-PocketChange.FormController = {	
+PocketChange.FormController = {		
+	_formWidth : 300,	// Width in pixels
 	_formHeader : 'PocketChange',
 	_orderAmount : 57.77,
 	_donationRate : 0.03,
 	// _APIKEY : "DONORSCHOOSE",
 	_APIKEY : "mvu94jd8bucx",
 
+	width : function(newWidth) {
+		if ("undefined" == typeof(newWidth)) {
+			return this._formWidth;
+		} else {
+			this._formWidth = newWidth;
+		}
+	},
+	
 	header : function(newHeader) {
 		if ("undefined" == typeof(newHeader)) {
 			return this._formHeader;

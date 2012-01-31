@@ -70,24 +70,20 @@ PocketChangeChrome.FormOverlay = {
 	appendProjects : function(projects) {
 		var projectList,projectPopup;
 
-		// Initialize menulist
+		// Initialize menulist		
 		$projectList = jQuery("<menulist>").attr({
-			id: "project-list"
-		});
-		$projectPopup = jQuery("<menupopup>").change(function(){
-			alert('change');
-			dump("selected label: ");
-			dump(jQuery("menuitem:selected").attr("label"));
-			dump("\n");
-		});
-		$projectPopup.attr({
+			id: "project-list",
 			oncommand : function(){
-				alert('change');
-				dump("selected label: ");
-				dump(jQuery("menuitem:selected").attr("label"));
-				dump("\n");	
+				alert('change menu list');
+				//dump(jQuery("menuitem:selected").attr("label"));				
 			}
-		})
+		});
+		$projectPopup = jQuery("<menupopup>").attr({
+			oncommand : function(){
+				alert('change menu popup');
+				//dump(jQuery("menuitem:selected").attr("label"));				
+			}
+		});
 
 		jQuery.each(projects, function(key, curProject) {
 			dump(key + " : " + curProject.title);
@@ -125,8 +121,10 @@ PocketChangeChrome.FormOverlay = {
 	updateDescription : function() {
 		var $description;
 		$description = jQuery("<description>").attr({
-			id : 'project-description',			
-		}).text( PocketChange.ProjectsController.selectedProject().shortDescription );
+			id : 'project-description',
+			//width : "300px"
+			width : PocketChange.FormController.width() + "px"
+		}).append( PocketChange.ProjectsController.selectedProject().shortDescription );
 
 		// Remove any previous descriptions
 		jQuery("#project-description").remove();
