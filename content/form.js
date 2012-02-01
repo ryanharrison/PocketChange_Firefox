@@ -73,14 +73,12 @@ PocketChangeChrome.FormOverlay = {
 		// Initialize menulist		
 		$projectList = jQuery("<menulist>").attr({
 			id: "project-list",
-			oncommand : function(){
-				alert('change menu list');
+			oncommand : function(){				
 				//dump(jQuery("menuitem:selected").attr("label"));				
 			}
 		});
 		$projectPopup = jQuery("<menupopup>").attr({
-			oncommand : function(){
-				alert('change menu popup');
+			oncommand : function(){				
 				//dump(jQuery("menuitem:selected").attr("label"));				
 			}
 		});
