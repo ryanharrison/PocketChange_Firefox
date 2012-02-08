@@ -50,9 +50,7 @@ PocketChangeChrome.FormOverlay = {
 					dump(key + " : " + element);
 					dump("\n");
 				});
-
-				dump("\n\n");
-				dump("appendProjects:\n");				
+							
 				
 				PocketChangeChrome.FormOverlay.appendProjects(data.proposals);				
 				PocketChangeChrome.FormOverlay.changeProject();
@@ -89,6 +87,7 @@ PocketChangeChrome.FormOverlay = {
 			$newProject = jQuery("<menuitem>").attr({				
 				label : projectTitle,
 				value : curProject.id,
+				class : 'project-item',
 				tooltiptext : curProject.fulfillmentTrailer,
 				selected : (key == 0)
 			});
@@ -107,10 +106,12 @@ PocketChangeChrome.FormOverlay = {
 	
 	changeProject : function() {		
 		// Get the ID of the selected project
-		var newProjectId = jQuery("menuitem:selected").val();
-				
+		var newProjectId = jQuery(".project-item:selected").val();
+
 		// Update PocketChange.ProjectsController with new project
 		PocketChange.ProjectsController.selectedProject(PocketChange.ProjectsController.getProjectById(newProjectId));
+
+		dump(PocketChange.ProjectsController.selectedProject().shortDescription + "\n\n");
 
 		// Update form
 		PocketChangeChrome.FormOverlay.updateSubject();

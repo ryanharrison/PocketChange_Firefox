@@ -22,7 +22,7 @@ PocketChangeChrome.BrowserOverlay = {
 
     jQuery(window).dblclick(function(){
       PocketChangeChrome.BrowserOverlay.handleClicks(e);
-    });
+    });    
   },
 
   handleClicks : function(e) {

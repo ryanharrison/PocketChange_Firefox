@@ -19,8 +19,9 @@ if ("undefined" == typeof(PocketChange)) {
 // }
 
 PocketChange.ButtonController = {
-	testing : function() {
-		window.alert("toolbar button clicked!");
+	mainButtonClick : function() {
+		jQuery("#pocketchange-button").css("list-style-image","url('chrome://pocketchange/content/images/button_big_deselected.png'");
+		alert("main toolbar button clicked!");
 	}
 }
 
@@ -83,12 +84,14 @@ PocketChange.ProjectsController = {
 	getProjects : function() {
 		return this._projects;
 	},
-	getProjectById : function(projectId) {
-		jQuery.each(this._projects, function(key, curProject) {
-			if (curProject.id == projectId) {
+	getProjectById : function(projectId) {		
+		for ( var i in this._projects ) {
+			var curProject = this._projects[i];
+
+			if ( curProject.id == projectId ) {
 				return curProject;
 			}
-		});
+		}		
 	},
 	selectedProject : function(project) {
 		if ("undefined" == typeof(project)) {
