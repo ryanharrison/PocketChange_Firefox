@@ -3,11 +3,9 @@
 <!DOCTYPE overlay SYSTEM "chrome://pocketchange/locale/overlay.dtd"> 
 <overlay id="pocketchange-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">	
 	<script type="application/javascript" src="resource://pocketchange/jquery-1.7.1.js"/>
-	<!-- <script type="application/javascript" src="chrome://pocketchange/resource/jquery-1.7.1.js"/> -->
-	<script type="application/javascript;version=1.7" src="jquery-1.7.1.js"/> 
+	<!-- <script type="application/javascript;version=1.7" src="jquery-1.7.1.js"/>  -->
+	<script type="application/javascript;version=1.7" src="resource://pocketchange/jquery-1.7.1.js"/>	
 	<script type="application/javascript" src="resource://pocketchange/PocketChange.js"/>
-	<script type="application/javascript;version=1.7" src="overlay.js"/> 
-
-
+	<script type="application/javascript;version=1.7" src="chrome://pocketchange/content/overlay.js"/>
 		
 </overlay>

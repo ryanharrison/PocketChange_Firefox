@@ -18,7 +18,11 @@ PocketChangeChrome.BrowserOverlay = {
     jQuery.noConflict();
     Components.utils.import("resource://pocketchange/PocketChange.js");
 
-    window.addEventListener("dblclick", function(e) { PocketChangeChrome.BrowserOverlay.handleClicks(e); }, false);
+    //window.addEventListener("dblclick", function(e) { PocketChangeChrome.BrowserOverlay.handleClicks(e); }, false);
+
+    jQuery(window).dblclick(function(){
+      PocketChangeChrome.BrowserOverlay.handleClicks(e);
+    });
   },
 
   handleClicks : function(e) {

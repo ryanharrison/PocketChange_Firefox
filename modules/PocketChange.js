@@ -83,8 +83,8 @@ PocketChange.ProjectsController = {
 			
 			if ( curProject.id == projectId ) {
 				return curProject;
-			}			
-		}
+			}
+		}		
 	},
 	selectedProject : function(project) {
 		if ("undefined" == typeof(project)) {

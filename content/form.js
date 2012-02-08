@@ -272,7 +272,6 @@ PocketChangeChrome.FormOverlay = {
 
 
 
-
 window.addEventListener("load", function(e) {
 	jQuery.noConflict();
 	PocketChangeChrome.FormOverlay.init(e);
