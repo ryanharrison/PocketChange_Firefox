@@ -83,14 +83,12 @@ PocketChange.ProjectsController = {
 	getProjects : function() {
 		return this._projects;
 	},
-	getProjectById : function(projectId) {		
-		for ( var i in this._projects ) {
-			var curProject = this._projects[i];
-			
-			if ( curProject.id == projectId ) {
+	getProjectById : function(projectId) {
+		jQuery.each(this._projects, function(key, curProject) {
+			if (curProject.id == projectId) {
 				return curProject;
 			}
-		}		
+		});
 	},
 	selectedProject : function(project) {
 		if ("undefined" == typeof(project)) {

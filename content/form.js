@@ -6,8 +6,7 @@ if ("undefined" == typeof(PocketChangeChrome)) {
 };
 
 PocketChangeChrome.FormOverlay = {
-	init : function(e) {
-		Components.utils.import("resource://pocketchange/PocketChange.js");
+	init : function(e) {		
 
 		PocketChangeChrome.FormOverlay.fillForm();
 	},
