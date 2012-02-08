@@ -5,7 +5,7 @@ var EXPORTED_SYMBOLS = [ "PocketChange" ];
 
 
 if ("undefined" == typeof(PocketChange)) {
-  var PocketChange = {};
+  var PocketChange = {};  
 };
 
 // PocketChange.Settings = {
@@ -25,6 +25,7 @@ PocketChange.FormController = {
 	_donationRate : 0.03,
 	// _APIKEY : "DONORSCHOOSE",
 	_APIKEY : "mvu94jd8bucx",
+	_maxProjects : 5,
 
 	width : function(newWidth) {
 		if ("undefined" == typeof(newWidth)) {
@@ -32,16 +33,14 @@ PocketChange.FormController = {
 		} else {
 			this._formWidth = newWidth;
 		}
-	},
-	
+	},	
 	header : function(newHeader) {
 		if ("undefined" == typeof(newHeader)) {
 			return this._formHeader;
 		} else {
 			this._formHeader = newHeader;
 		}
-	},
-		
+	},		
 	orderAmount : function(newOrderAmount) {
 		if ("undefined" == typeof(newOrderAmount)) {
 			return this._orderAmount;
@@ -49,7 +48,6 @@ PocketChange.FormController = {
 			this._orderAmount = newOrderAmount;
 		}
 	},
-
 	donationRate : function(newDonationRate) {
 		if ("undefined" == typeof(newDonationRate)) {
 			return this._donationRate;
@@ -57,9 +55,11 @@ PocketChange.FormController = {
 			this._donationRate = newDonationRate;
 		}
 	},
-
 	apiKey : function() {		
 		return this._APIKEY;
+	},
+	maxProjects : function() {
+		return this._maxProjects;
 	}
 
 }
@@ -71,23 +71,21 @@ PocketChange.ProjectsController = {
 	init : function() {
 		return "test";
 	},
-
 	addProject : function(newProject) {
 		this._projects.push(newProject);
 	},
-
 	getProjects : function() {
 		return this._projects;
 	},
-
-	getProjectById : function(projectID) {
-		jQuery.each(_projects, function(key, curProject) {
-			if (curProject.id == projectID) {
+	getProjectById : function(projectId) {		
+		for ( var i in this._projects ) {
+			var curProject = this._projects[i];
+			
+			if ( curProject.id == projectId ) {
 				return curProject;
-			}
-		});
+			}			
+		}
 	},
-
 	selectedProject : function(project) {
 		if ("undefined" == typeof(project)) {
 			return this._selectedProject;

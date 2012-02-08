@@ -4,6 +4,66 @@
 		"selected_items":
 		[
 			[
+				"prop",
+				"proposals"
+			],
+			[
+				"propo",
+				"proposalLink"
+			],
+			[
+				"resou",
+				"resource"
+			],
+			[
+				"resource",
+				"resourceType"
+			],
+			[
+				"level",
+				"povertyLevel"
+			],
+			[
+				"poverty",
+				"povertyLevel"
+			],
+			[
+				"type",
+				"typeof"
+			],
+			[
+				"school",
+				"schoolName"
+			],
+			[
+				"Poc",
+				"PocketChange"
+			],
+			[
+				"descri",
+				"descriptionText"
+			],
+			[
+				"desc",
+				"descriptionText"
+			],
+			[
+				"newPro",
+				"newProjectId"
+			],
+			[
+				"form",
+				"FormOverlay"
+			],
+			[
+				"Fo",
+				"FormOverlay"
+			],
+			[
+				"_project",
+				"_projectListMax"
+			],
+			[
 				"Form",
 				"FormController"
 			],
@@ -44,55 +104,50 @@
 			"settings":
 			{
 				"buffer_size": 329,
-				"line_ending": "Windows"
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "content/form.xul",
 			"settings":
 			{
-				"buffer_size": 1070,
-				"line_ending": "Windows"
+				"buffer_size": 1302,
+				"line_ending": "Unix"
 			}
 		},
 		{
+			"contents": "//var pcConsole = Components.utils.reportError;\n//pcConsole('can haz debug?');\n\nif (\"undefined\" == typeof(PocketChangeChrome)) {\n	var PocketChangeChrome = {};\n};\n\nPocketChangeChrome.FormOverlay = {\n	init : function(e) {\n		Components.utils.import(\"resource://pocketchange/PocketChange.js\");\n\n		PocketChangeChrome.FormOverlay.fillForm();\n	},\n\n	fillForm : function() {\n		// Set order amount\n		jQuery(\"#order-amount\").val(\n			PocketChange.FormController.orderAmount()\n		);\n\n		// Set donation rate\n		jQuery(\"#donation-rate\").val(\n			PocketChange.FormController.donationRate()\n		);\n\n		PocketChangeChrome.FormOverlay.getProjects();\n	},\n\n	getProjects : function() {	\n		jQuery.ajax({\n			type: 'GET',\n			url: 'http://api.donorschoose.org/common/json_feed.html',\n			data: {\n				APIKey : PocketChange.FormController.apiKey(),\n				max : PocketChange.FormController.maxProjects(),\n				//'showSynopsis' : true,\n				//'subject1' : \"12\"\n				keywords : \"Sports\"\n			},\n			dataType: 'json',\n			error: function(a,b,c){\n				alert('ERROR: AJAX call failed (getProjects), check console.');\n				dump(\"getProjects AJAX fail\\n\");\n				dump(a,b,c);\n				dump(\"\\n\");\n			},\n			success: function(data){\n				dump(\"project AJAX request: success\\n\");\n				jQuery.each(data, function(key, element) {\n					dump(key + \" : \" + element);\n					dump(\"\\n\");\n				});\n\n				dump(\"\\n\\n\");\n				dump(\"appendProjects:\\n\");				\n				\n				PocketChangeChrome.FormOverlay.appendProjects(data.proposals);				\n				PocketChangeChrome.FormOverlay.changeProject();\n			}\n		});\n	},	\n\n	appendProjects : function(projects) {\n		var projectList,projectPopup;\n\n		// Initialize menulist		\n		$projectList = jQuery(\"<menulist>\").attr({\n			id: \"project-list\",\n			oncommand : 'PocketChangeChrome.FormOverlay.changeProject()'			\n		});\n\n		$projectPopup = jQuery(\"<menupopup>\");\n\n		jQuery.each(projects, function(key, curProject) {\n			dump(key + \" : \" + curProject.title);\n			dump(\"\\n\");\n\n			var $newProject;\n\n			// Update PocketChange.js\n			PocketChange.ProjectsController.addProject(curProject);\n\n			if ( key == 0 ) {				\n				PocketChange.ProjectsController.selectedProject(curProject);\n			}\n\n			// Build project\n			$newProject = jQuery(\"<menuitem>\").attr({\n				label : curProject.title,\n				value : curProject.id,\n				tooltiptext : curProject.fulfillmentTrailer,\n				selected : (key == 0)\n			});\n\n			// Add project to popup\n			$projectPopup.append($newProject);\n		});\n		\n		// Add popup to menulist\n		$projectList.append($projectPopup);\n		// Remove any previous lists\n		jQuery(\"#project-list\").remove();\n		// Add menu list to form\n		jQuery(\"#project-title-container\").append($projectList);\n	},\n	\n	changeProject : function() {		\n		// Get the ID of the selected project\n		var newProjectId = jQuery(\"menuitem:selected\").val();\n				\n		// Update PocketChange.ProjectsController with new project\n		PocketChange.ProjectsController.selectedProject(PocketChange.ProjectsController.getProjectById(newProjectId));\n\n		// Update form\n		PocketChangeChrome.FormOverlay.updateDescription();\n		PocketChangeChrome.FormOverlay.updateProgress();\n		PocketChangeChrome.FormOverlay.updateSchool();\n		PocketChangeChrome.FormOverlay.updateSubject();\n		PocketChangeChrome.FormOverlay.updatePoverty();\n		PocketChangeChrome.FormOverlay.updateResource();\n	},\n\n	updateDescription : function() {\n		var $description, descriptionText;\n		$description = jQuery(\"<description>\").attr({\n			id : 'project-description',			\n			width : PocketChange.FormController.width() + \"px\"\n		});\n\n		descriptionText = PocketChange.ProjectsController.selectedProject().shortDescription;\n		$description.append( descriptionText );\n\n		// Remove any previous descriptions\n		jQuery(\"#project-description\").remove();\n\n		// Update with new description\n		jQuery(\"#description-container\").append( $description );\n	},\n\n	updateProgress : function() {\n		var $progress, totalCost, costToComplete, raised, progressText;\n		$progress = jQuery(\"<description>\").attr({\n			id : 'project-progress',			\n			width : PocketChange.FormController.width() + \"px\"\n		});\n\n		totalCost = PocketChange.ProjectsController.selectedProject().totalPrice;\n		costToComplete = PocketChange.ProjectsController.selectedProject().costToComplete;\n		raised =  totalCost - costToComplete;\n\n		progressText = \"$\" + raised + \" of $\" + totalCost + \" raised. $\" + costToComplete + \" left to go.\";\n		$progress.append( progressText );\n\n		// Remove any previous progress text\n		jQuery(\"#project-progress\").remove();\n\n		// Update with new progress\n		jQuery(\"#progress-container\").append( $progress );	\n	},\n\n	updateSchool : function() {\n		var $school, schoolName, schoolText;\n		$school = jQuery(\"<description>\").attr({\n			id : 'project-school',			\n			width : PocketChange.FormController.width() + \"px\"\n		});\n\n		if ( \"undefined\" == typeof(PocketChange.ProjectsController.selectedProject().schoolName) ) {\n			schoolName = \"school name hidden\";\n		} else {\n			schoolName = PocketChange.ProjectsController.selectedProject().schoolName;			\n		}\n\n		schoolText = \"School: \" + schoolName;\n		$school.append( schoolText );\n\n		// Remove any previous school text\n		jQuery(\"#project-school\").remove();\n\n		// Update with new school\n		jQuery(\"#school-container\").append( $school );\n	},\n\n	updateSubject : function() {\n		var $subject, subjectName, subjectText;\n		$subject = jQuery(\"<description>\").attr({\n			id : 'project-subject',\n			width : PocketChange.FormController.width() + \"px\"\n		});\n		\n		subjectName = PocketChange.ProjectsController.selectedProject().subject.name;\n\n		subjectText = \"Subject: \" + subjectName;\n		$subject.append( subjectText );\n\n		// Remove any previous subject text\n		jQuery(\"#project-subject\").remove();\n\n		// Update with new subject\n		jQuery(\"#subject-container\").append( $subject );\n	},\n\n	updatePoverty : function() {\n		var $poverty, povertyLevel, povertyText;\n		$poverty = jQuery(\"<description>\").attr({\n			id : 'project-poverty',\n			width : PocketChange.FormController.width() + \"px\"\n		});\n		\n		povertyLevel = PocketChange.ProjectsController.selectedProject().povertyLevel;\n\n		povertyText = \"Poverty Level: \" + povertyLevel;\n		$poverty.append( povertyText );\n\n		// Remove any previous subject text\n		jQuery(\"#project-poverty\").remove();\n\n		// Update with new subject\n		jQuery(\"#poverty-container\").append( $poverty );\n	},\n\n	updateResource : function() {\n		var $resource, resourceType, resourceText;\n		$resource = jQuery(\"<description>\").attr({\n			id : 'project-resource',\n			width : PocketChange.FormController.width() + \"px\"\n		});\n		\n		resourceType = PocketChange.ProjectsController.selectedProject().resource.name;\n\n		resourceText = \"Resource Type: \" + resourceType;\n		$resource.append( resourceText );\n\n		// Remove any previous subject text\n		jQuery(\"#project-resource\").remove();\n\n		// Update with new subject\n		jQuery(\"#resource-container\").append( $resource );\n	},\n\n	updateLink : function() {\n		var $link, proposalLink, linkText;\n		$link = jQuery(\"<description>\").attr({\n			id : 'project-link',\n			width : PocketChange.FormController.width() + \"px\",\n			\n		});\n		\n		proposalLink = PocketChange.ProjectsController.selectedProject().proposalURL;\n\n		linkText = \"<a\" + resourceType;\n		$resource.append( resourceText );\n\n		// Remove any previous subject text\n		jQuery(\"#project-resource\").remove();\n\n		// Update with new subject\n		jQuery(\"#resource-container\").append( $resource );\n	}	\n\n};\n\n\n\n\nwindow.addEventListener(\"load\", function(e) {\n	jQuery.noConflict();\n	PocketChangeChrome.FormOverlay.init(e);\n}, false);\n",
 			"file": "content/form.js",
+			"file_size": 7464,
+			"file_write_time": 129730379538155046,
 			"settings":
 			{
-				"buffer_size": 3538,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "content/overlay.js",
-			"settings":
-			{
-				"buffer_size": 1944,
-				"line_ending": "Windows"
+				"buffer_size": 7442,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "content/overlay.xul",
 			"settings":
 			{
-				"buffer_size": 722,
-				"line_ending": "Windows"
+				"buffer_size": 721,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "content/overlay.js",
+			"settings":
+			{
+				"buffer_size": 1896,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "modules/PocketChange.js",
 			"settings":
 			{
-				"buffer_size": 1916,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/School/INFO 490/dev/debug/debug.js",
-			"settings":
-			{
-				"buffer_size": 453,
-				"line_ending": "Windows"
+				"buffer_size": 2020,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -120,16 +175,21 @@
 	},
 	"file_history":
 	[
+		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/modules/PocketChange.js",
+		"/C/School/INFO 490/dev/debug/debug.js",
+		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/chrome.manifest",
+		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/content/form.xul",
+		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/content/form.js",
+		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/content/overlay.js",
+		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/content/overlay.xul",
 		"/Z/release_manager/js/checklist.js",
 		"/Z/xmt/js/translate.js",
 		"/Z/xmt/translate.php",
 		"/C/School/INFO 490/dev/debug/debug.html",
 		"/C/Users/RyanHarrison/AppData/Roaming/Mozilla/Extensions/pocketchange@pocketchange.me",
-		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/content/overlay.xul",
 		"/C/Users/RyanHarrison/Desktop/Cursor_While_Loop.sql",
 		"/C/Users/RyanHarrison/Desktop/All_Queries.sql",
 		"/C/School/INFO 344/HVZT/FINAL/js/form.js",
-		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/chrome.manifest",
 		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/skin/form.css",
 		"/C/Users/RyanHarrison/Desktop/HelloWorld3/HelloWorld3/src/chrome/content/browserOverlay.js",
 		"/C/Users/RyanHarrison/Desktop/HelloWorld3/HelloWorld3/src/modules/messageCount.js",
@@ -207,6 +267,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"updateDescription",
+			"append",
 			"addProject",
 			"attr",
 			"translations",
@@ -234,7 +296,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -249,8 +311,8 @@
 						"selection":
 						[
 							[
-								329,
-								329
+								34,
+								34
 							]
 						],
 						"settings":
@@ -268,15 +330,15 @@
 					"file": "content/form.xul",
 					"settings":
 					{
-						"buffer_size": 1070,
+						"buffer_size": 1302,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								996,
-								996
+								1252,
+								1252
 							]
 						],
 						"settings":
@@ -295,80 +357,24 @@
 					"file": "content/form.js",
 					"settings":
 					{
-						"buffer_size": 3538,
+						"buffer_size": 7442,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3151,
-								3151
+								6987,
+								6987
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false,
-							"word_wrap": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1236.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "content/overlay.js",
-					"settings":
-					{
-						"buffer_size": 1944,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1481,
-								1481
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 80.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "content/overlay.xul",
-					"settings":
-					{
-						"buffer_size": 722,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								455,
-								370
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3152.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -376,29 +382,28 @@
 			]
 		},
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
-					"buffer": 5,
-					"file": "modules/PocketChange.js",
+					"buffer": 3,
+					"file": "content/overlay.xul",
 					"settings":
 					{
-						"buffer_size": 1916,
+						"buffer_size": 721,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								740,
-								740
+								540,
+								540
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/XML/XML.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -407,19 +412,47 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "/C/School/INFO 490/dev/debug/debug.js",
+					"buffer": 4,
+					"file": "content/overlay.js",
 					"settings":
 					{
-						"buffer_size": 453,
+						"buffer_size": 1896,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								453,
-								453
+								302,
+								302
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "modules/PocketChange.js",
+					"settings":
+					{
+						"buffer_size": 2020,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1774,
+								1774
 							]
 						],
 						"settings":
@@ -428,7 +461,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 528.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

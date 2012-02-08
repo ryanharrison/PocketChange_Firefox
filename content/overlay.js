@@ -14,8 +14,7 @@ if ("undefined" == typeof(PocketChangeChrome)) {
  */
 PocketChangeChrome.BrowserOverlay = {
   
-  init : function(e) {
-    window.alert("PocketChangeChrome initialized");
+  init : function(e) {    
     jQuery.noConflict();
     Components.utils.import("resource://pocketchange/PocketChange.js");
 

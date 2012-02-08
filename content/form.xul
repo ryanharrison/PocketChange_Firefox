@@ -21,7 +21,13 @@
 	
 	<vbox id="project-info-container">
 		<hbox id="project-title-container"></hbox>
+		<hbox id="subject-container"></hbox>
+		<hbox id="school-container"></hbox>
+		<hbox id="poverty-container"></hbox>
+		<hbox id="resource-container"></hbox>
+		<hbox id="progress-container"></hbox>
 		<hbox id="description-container"></hbox>
+		<hbox id="link-container"></hbox>
 	</vbox>
 
 </vbox>
