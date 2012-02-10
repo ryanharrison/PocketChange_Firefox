@@ -3,9 +3,8 @@
 <?xml-stylesheet type="text/css" href="chrome://pocketchange/skin/button.css" ?> 
 <!DOCTYPE overlay SYSTEM "chrome://pocketchange/locale/overlay.dtd"> 
 <overlay id="pocketchange-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">	
-	<script type="application/javascript" src="resource://pocketchange/jquery-1.7.1.js"/>
-	<!-- <script type="application/javascript;version=1.7" src="resource://pocketchange/jquery-1.7.1.js"/> -->
 	<script type="application/javascript" src="chrome://pocketchange/content/jquery-1.7.1.js"/>
+	<script type="application/javascript" src="chrome://pocketchange/content/io.js"/>
 	<script type="application/javascript" src="chrome://pocketchange/content/PocketChange.js"/>
 	<script type="application/javascript;version=1.7" src="chrome://pocketchange/content/overlay.js"/>
 		
