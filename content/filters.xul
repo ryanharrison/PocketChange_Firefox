@@ -1,0 +1,59 @@
+<?xml version="1.0"?> 
+<?xml-stylesheet href="chrome://pocketchange/skin/filters.css" type="text/css"?> 
+<!DOCTYPE overlay SYSTEM "chrome://pocketchange/locale/filters.dtd"> 
+<window id="pocketchange-filters" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">		
+	<script type="application/javascript" src="chrome://pocketchange/content/jquery-1.7.1.js"/>
+	<script type="application/javascript" src="chrome://pocketchange/content/PocketChange.js"/>
+	<script type="application/javascript;version=1.7" src="filters.js"/> 
+
+	<vbox>
+		<hbox class="filter-container" id="filter-container-location">
+			<image src="chrome://pocketchange/content/images/icon64.png"/>
+			<description class="filter-title" value="By Location"></description>
+			<vbox>
+				<label value="ZIP Code" control="zip-code" />
+				<textbox maxlength="5" onchange="PocketChangeChrome.Filters.updateZip();" id="zip-code" />
+			</vbox>
+		</hbox>
+
+		<commandset>
+			<command id="selectMusic" oncommand="PocketChangeChrome.Filters.select('subject1','-1');" />
+			<command id="selectHealth" oncommand="PocketChangeChrome.Filters.select('subject2','-2');" />
+			<command id="selectLiteracy" oncommand="PocketChangeChrome.Filters.select('subject6','-6');" />
+			<command id="selectHistory" oncommand="PocketChangeChrome.Filters.select('subject3','-3');" />
+			<command id="selectMath" oncommand="PocketChangeChrome.Filters.select('subject4','-4');" />
+			<command id="selectSpecialNeeds" oncommand="PocketChangeChrome.Filters.select('subject7','-7');" />
+			<command id="selectAppliedLearning" oncommand="PocketChangeChrome.Filters.select('subject5','-5');" />
+		</commandset>
+
+		<hbox class="filter-container" id="filter-container-subject">
+			<image src="chrome://pocketchange/content/images/icon64.png"/>
+			<description class="filter-title" value="By Subject"></description>
+			<hbox>				
+				<menulist oncommand="PocketChangeChrome.Filters.updateSubject()">
+					<menupopup>						
+						<menuitem subKey="all" subVal="all" class="subject" label="All Subjects" />
+						<menuitem subKey="subject1" subVal="-1" class="subject" label="Music &amp; The Arts" />
+						<menuitem subKey="subject2" subVal="-2" class="subject" label="Health &amp; Sports" />
+						<menuitem subKey="subject6" subVal="-6" class="subject" label="Literacy &amp; Language" />
+						<menuitem subKey="subject3" subVal="-3" class="subject" label="History &amp; Civics" />		
+					
+						<menuitem subKey="subject4" subVal="-4" class="subject" label="Math &amp; Science" />
+						<menuitem subKey="subject7" subVal="-7" class="subject" label="Special Needs" />
+						<menuitem subKey="subject5" subVal="-5" class="subject" label="Applied Learning" />
+<!-- 						<menuitem subKey="subject1" subVal="-1" command="selectMusic" class="subject" label="Music &amp; The Arts" />
+						<menuitem subKey="subject2" subVal="-2" command="selectHealth" class="subject" label="Health &amp; Sports" />
+						<menuitem subKey="subject6" subVal="-6" command="selectLiteracy" class="subject" label="Literacy &amp; Language" />
+						<menuitem subKey="subject3" subVal="-3" command="selectHistory" class="subject" label="History &amp; Civics" />		
+					
+						<menuitem subKey="subject4" subVal="-4" command="selectMath" class="subject" label="Math &amp; Science" />
+						<menuitem subKey="subject7" subVal="-7" command="selectSpecialNeeds" class="subject" label="Special Needs" />
+						<menuitem subKey="subject5" subVal="-5" command="selectAppliedLearning" class="subject" label="Applied Learning" /> -->
+					</menupopup>
+				</menulist>
+			</hbox>
+		</hbox>
+	</vbox>
+
+
+</window>

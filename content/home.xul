@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="data:text/css,
+window {
+    background-color: white;
+}
+
+#nav {
+    text-align:right;
+    font-size:20px;
+}
+
+#title {
+    color:black;
+    text-align:center;
+    font-size:50px;
+}
+
+#button {
+    border:10px solid red;
+    background-color:black;
+    -moz-appearance:none;
+}
+
+#button2 {
+    border:10px solid black;
+    background-color:red;
+    -moz-appearance:none;
+}
+#column1 {
+    border-right:2px solid black;
+}
+
+#leftColumn, #rightColumn {
+    font-size:20px;
+    text-align:center;
+    -moz-appearance:none;
+}
+
+" type="text/css"?>
+<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <grid>
+        <columns>
+            <column flex="1"/>
+            <column flex="1"/>
+        </columns>
+        <rows>
+            <row>
+                <image src='Firefoxlogo.png' width='135' height='130'/>
+                <description id="nav" value="Settings | Log Out"/>
+            </row>
+        </rows>
+    </grid>
+    <description id="title" value="PocketChange"/>
+    <grid flex="1">
+        <columns>
+            <column id="column1" flex="1"/>
+            <column flex="1"/>
+        </columns>
+
+        <rows>
+            <row>
+                   <description id="leftColumn" value="Total Amount Donated"/>
+                   <description id="rightColumn" value="Badges"/>
+            </row>
+            <row>
+              
+            </row>
+        </rows>
+    </grid>
+</window>

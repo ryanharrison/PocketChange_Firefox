@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="data:text/css,
+window {
+    background-color: white;
+}
+
+#nav {
+    text-align:right;
+    font-size:20px;
+}
+
+#title {
+    color:black;
+    text-align:center;
+    font-size:70px;
+    font-weight:bold;
+}
+
+#label {
+    text-align:center;
+}
+
+#button {
+    width: 20px:
+}
+
+" type="text/css"?>
+<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <grid>
+        <columns>
+            <column flex="1"/>
+            <column flex="7"/>
+        </columns>
+        <rows>
+            <row>
+                <button id="button" label="Replacing the image for now" image="logo.png"/>
+                <!--<image src='logo.png' width='135' height='130'/>-->
+                <description id="nav" value="Home | Log Out"/>
+            </row>
+        </rows>
+    </grid>
+    <description id="title" value="Settings"/>
+    <separator align="vertical"/>
+    <separator align="vertical"/>
+    <separator align="vertical"/>
+    <grid>
+        <columns>
+            <column flex="1"/>
+            <column flex="1"/>
+            <column flex="1"/>
+        </columns>
+        <rows>
+            <row>
+                <vbox>
+                </vbox>   
+                <description id="label" value="edit" style="text-align:left;"/>
+                <vbox>
+                </vbox>
+            </row>
+            <row>
+                <vbox>
+                </vbox>
+                <textbox value="Name: John Smith"/>
+                <vbox>
+                </vbox>
+            </row>
+            <row>
+                <vbox>
+                </vbox>
+                <textbox value="Email: john.smith@gmail.com"/>
+                <vbox>
+                </vbox>
+            </row>
+        </rows>
+    </grid>
+</window>

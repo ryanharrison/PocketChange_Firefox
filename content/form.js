@@ -81,7 +81,7 @@ PocketChangeChrome.FormOverlay = {
 			}
 
 			// Format project title
-			projectTitle = PocketChangeChrome.FormOverlay.html_entity_decode(curProject.title);			
+			projectTitle = PocketChange.Helper.html_entity_decode(curProject.title);			
 
 			// Build project
 			$newProject = jQuery("<menuitem>").attr({				
@@ -244,7 +244,7 @@ PocketChangeChrome.FormOverlay = {
 	updateLink : function() {
 		var $link, proposalLink;		
 		proposalLink = PocketChange.ProjectsController.selectedProject().proposalURL;		
-		proposalLink = PocketChangeChrome.FormOverlay.html_entity_decode(proposalLink);		
+		proposalLink = PocketChange.Helper.html_entity_decode(proposalLink);		
 
 		$link = jQuery("<label>").attr({
 			id : 'project-link',			
@@ -260,12 +260,6 @@ PocketChangeChrome.FormOverlay = {
 		// Update with new subject
 		jQuery("#link-container").append( $link );
 		//document.getElementById('project-link').textContent = proposalLink;
-	},
-
-	html_entity_decode : function(str) {		
-		str = str.replace(/&amp;/g,"&");
-		str = str.replace(/&#039;/g,"'");		
-		return str;		
 	}
 
 };

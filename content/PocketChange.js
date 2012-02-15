@@ -146,3 +146,56 @@ PocketChange.FileAccess = {
 		});
 	}
 }
+
+PocketChange.SearchFilters = {
+	_filters : {},
+
+	get : function() {
+		return this._filters;
+	},
+	updateZip : function(newZip) {
+		if (PocketChange.SearchFilters.validateZip(newZip)) {
+			var zip;
+			zip = {
+				key : "keywords",
+				val : newZip
+			}
+			this._filters.zip = zip;
+		} else {
+			dump("invalid zip: " + newZip + "\n");
+		}
+	},
+	// Tests if the ZIP code is a 5 digit number
+	validateZip : function(zip) {
+		var zipCodePattern = /^\d{5}$/;
+		return zipCodePattern.test(zip);
+	},
+	updateSubject : function(newSubject) {
+		if (newSubject.key == "all") {
+			this._filters.subject = null;
+		} else {
+			this._filters.subject = newSubject;
+		}
+	}
+}
+
+PocketChange.Helper = {
+	html_entity_decode : function(str) {
+		str = str.replace(/&amp;/g,"&");
+		str = str.replace(/&#039;/g,"'");
+		return str;
+	},
+	// dumpObject : function(obj) {
+	// 	dump("dumpObject:\n");
+	// 	if (obj == null) {
+	// 		dump("obj is null...\n");
+	// 	} else {
+	// 		var depth;
+	// 		depth = 0;
+	// 		jQuery.each(obj, function(key, val) {
+				
+	// 		});
+	// 	}		
+
+	// }
+}
