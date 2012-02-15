@@ -19,7 +19,7 @@ PocketChangeChrome.FormOverlay = {
 
 		// Set donation rate
 		jQuery("#donation-rate").val(
-			PocketChange.FormController.donationRate()
+			PocketChange.Settings.donationRate()
 		);
 
 		PocketChangeChrome.FormOverlay.getProjects();
@@ -251,6 +251,7 @@ PocketChangeChrome.FormOverlay = {
 			width : PocketChange.FormController.width() + "px",
 			class : 'text-link',
 			href : proposalLink,
+			target : "_parent",
 			value : 'View Project'
 		});
 

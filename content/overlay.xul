@@ -18,8 +18,8 @@
 		type="menu-button" 
 		oncommand="PocketChange.ButtonController.mainButtonClick()" >
 			<menupopup>
-				<menuitem label="Menu item 1"/>
-				<menuitem label="Menu item 2"/>
+				<menuitem oncommand="PocketChange.ButtonController.pageClick('filters');" label="Filters"/>
+				<menuitem oncommand="PocketChange.ButtonController.pageClick('donation-form');" label="Donation Form"/>
 			</menupopup>
 
 	  	</toolbarbutton>

@@ -7,6 +7,11 @@
 	<script type="application/javascript;version=1.7" src="filters.js"/> 
 
 	<vbox>
+		<!--	DONATION RATE		-->
+		<label value="Donation Rate" control="donation-rate" />
+		<textbox type="number" hidespinbuttons="true" onchange="PocketChangeChrome.Filters.updateDonationRate();" id="donation-rate" />
+
+		<!--	FILTER BY LOCATION 	-->
 		<hbox class="filter-container" id="filter-container-location">
 			<image src="chrome://pocketchange/content/images/icon64.png"/>
 			<description class="filter-title" value="By Location"></description>
@@ -16,16 +21,7 @@
 			</vbox>
 		</hbox>
 
-		<commandset>
-			<command id="selectMusic" oncommand="PocketChangeChrome.Filters.select('subject1','-1');" />
-			<command id="selectHealth" oncommand="PocketChangeChrome.Filters.select('subject2','-2');" />
-			<command id="selectLiteracy" oncommand="PocketChangeChrome.Filters.select('subject6','-6');" />
-			<command id="selectHistory" oncommand="PocketChangeChrome.Filters.select('subject3','-3');" />
-			<command id="selectMath" oncommand="PocketChangeChrome.Filters.select('subject4','-4');" />
-			<command id="selectSpecialNeeds" oncommand="PocketChangeChrome.Filters.select('subject7','-7');" />
-			<command id="selectAppliedLearning" oncommand="PocketChangeChrome.Filters.select('subject5','-5');" />
-		</commandset>
-
+		<!--	FILTER BY SUBJECT 	-->
 		<hbox class="filter-container" id="filter-container-subject">
 			<image src="chrome://pocketchange/content/images/icon64.png"/>
 			<description class="filter-title" value="By Subject"></description>
@@ -41,14 +37,6 @@
 						<menuitem subKey="subject4" subVal="-4" class="subject" label="Math &amp; Science" />
 						<menuitem subKey="subject7" subVal="-7" class="subject" label="Special Needs" />
 						<menuitem subKey="subject5" subVal="-5" class="subject" label="Applied Learning" />
-<!-- 						<menuitem subKey="subject1" subVal="-1" command="selectMusic" class="subject" label="Music &amp; The Arts" />
-						<menuitem subKey="subject2" subVal="-2" command="selectHealth" class="subject" label="Health &amp; Sports" />
-						<menuitem subKey="subject6" subVal="-6" command="selectLiteracy" class="subject" label="Literacy &amp; Language" />
-						<menuitem subKey="subject3" subVal="-3" command="selectHistory" class="subject" label="History &amp; Civics" />		
-					
-						<menuitem subKey="subject4" subVal="-4" command="selectMath" class="subject" label="Math &amp; Science" />
-						<menuitem subKey="subject7" subVal="-7" command="selectSpecialNeeds" class="subject" label="Special Needs" />
-						<menuitem subKey="subject5" subVal="-5" command="selectAppliedLearning" class="subject" label="Applied Learning" /> -->
 					</menupopup>
 				</menulist>
 			</hbox>

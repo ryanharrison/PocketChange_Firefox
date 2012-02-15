@@ -6,11 +6,17 @@ if ("undefined" == typeof(PocketChangeChrome)) {
 };
 
 PocketChangeChrome.Filters = {	
+	updateDonationRate : function() {
+		var rate;
+
+		rate = jQuery("#donation-rate").val();
+		PocketChange.Settings.donationRate(rate);
+	},
 	updateZip : function() {
 		var zip;		
 		zip = jQuery("#zip-code").val();
 		PocketChange.SearchFilters.updateZip(zip);
-		PocketChangeChrome.Filters.testFilter("zip");
+		//PocketChangeChrome.Filters.testFilter("zip");
 	},
 	updateSubject : function() {
 		var sub, subKey, subVal;

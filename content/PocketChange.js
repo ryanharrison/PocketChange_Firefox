@@ -12,7 +12,21 @@ if ("undefined" == typeof(PocketChange)) {
 };
 
 PocketChange.Settings = {
-	
+	_donationRate : 0.02,
+
+	donationRate : function(rate) {
+		if ("undefined" == typeof(rate)) {
+			return this._donationRate;
+		} else {
+			this._donationRate = PocketChange.Settings.formatRate(rate);			
+		}
+	},
+	formatRate : function(rate) {
+		var newRate;
+		// Convert 5 => 0.05
+		newRate = parseFloat(rate)/100;		
+		return newRate;
+	},
 	loadSettings : function() {
 		
 	},
@@ -26,19 +40,23 @@ PocketChange.Settings = {
 
 PocketChange.ButtonController = {
 	mainButtonClick : function() {
-		jQuery("#pocketchange-button").css("list-style-image","url('chrome://pocketchange/content/images/button_big_deselected.png'");
-		//alert("main toolbar button clicked!");
-		PocketChange.Settings.saveSettings();
+		jQuery("#pocketchange-button").css("list-style-image","url('chrome://pocketchange/content/images/button_big_deselected.png'");		
+		
+	},
+	pageClick : function(option) {
+		if (option == "filters") {
+			PocketChange.Helper.openTab("chrome://pocketchange/content/filters.xul");
+		} else if (option == "donation-form") {
+			PocketChange.Helper.openTab("chrome://pocketchange/content/form.xul");
+		}
 	}
 }
 
 PocketChange.FormController = {
 	_formWidth : 300,	// Width in pixels
 	_formHeader : 'PocketChange',
-	_orderAmount : 57.77,
-	_donationRate : 0.03,
-	// _APIKEY : "DONORSCHOOSE",
-	_APIKEY : "mvu94jd8bucx",
+	_orderAmount : 57.77,	
+	_APIKEY : "DONORSCHOOSE",	
 	_maxProjects : 5,
 
 	width : function(newWidth) {
@@ -61,14 +79,7 @@ PocketChange.FormController = {
 		} else {
 			this._orderAmount = newOrderAmount;
 		}
-	},
-	donationRate : function(newDonationRate) {
-		if ("undefined" == typeof(newDonationRate)) {
-			return this._donationRate;
-		} else {
-			this._donationRate = newDonationRate;
-		}
-	},
+	},	
 	apiKey : function() {		
 		return this._APIKEY;
 	},
@@ -185,6 +196,13 @@ PocketChange.Helper = {
 		str = str.replace(/&#039;/g,"'");
 		return str;
 	},
+	openTab : function(url) {
+		var browser, tab;
+		browser = document.getElementById("content");
+		tab = browser.addTab(url);
+		// Focus the new tab, otherwise it will open in background
+		browser.selectedTab = tab;
+	}
 	// dumpObject : function(obj) {
 	// 	dump("dumpObject:\n");
 	// 	if (obj == null) {
