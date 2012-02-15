@@ -6,6 +6,12 @@ if ("undefined" == typeof(PocketChangeChrome)) {
 };
 
 PocketChangeChrome.Filters = {	
+	updateTaxReminder : function() {
+		var status;
+		status = jQuery("#tax-reminder").attr("checked");
+		
+		PocketChange.Settings.taxReminder(status);
+	},
 	updateDonationRate : function() {
 		var rate;
 

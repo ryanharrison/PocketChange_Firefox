@@ -13,7 +13,15 @@ if ("undefined" == typeof(PocketChange)) {
 
 PocketChange.Settings = {
 	_donationRate : 0.02,
+	_taxReminder : false,
 
+	taxReminder : function(status) {
+		if ("undefined" == typeof(status)) {
+			return this._taxReminder;
+		} else {
+			this._taxReminder = status;
+		}
+	},
 	donationRate : function(rate) {
 		if ("undefined" == typeof(rate)) {
 			return this._donationRate;
