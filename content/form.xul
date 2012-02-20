@@ -3,6 +3,7 @@
 <!DOCTYPE overlay SYSTEM "chrome://pocketchange/locale/form.dtd"> 
 <overlay id="pocketchange-form" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">	
 	<!-- <script type="application/javascript" src="resource://pocketchange/jquery-1.7.1.js"/> -->
+	<script type="application/javascript" src="chrome://pocketchange/content/json2.js"/>
 	<script type="application/javascript" src="chrome://pocketchange/content/jquery-1.7.1.js"/>
 	<script type="application/javascript" src="chrome://pocketchange/content/PocketChange.js"/>
 	<script type="application/javascript;version=1.7" src="form.js"/> 

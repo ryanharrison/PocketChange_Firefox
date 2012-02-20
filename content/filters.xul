@@ -2,8 +2,9 @@
 <?xml-stylesheet href="chrome://pocketchange/skin/filters.css" type="text/css"?> 
 <!DOCTYPE overlay SYSTEM "chrome://pocketchange/locale/filters.dtd"> 
 <window id="pocketchange-filters" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">		
+	<script type="application/javascript" src="chrome://pocketchange/content/json2.js"/>
 	<script type="application/javascript" src="chrome://pocketchange/content/jquery-1.7.1.js"/>
-	<script type="application/javascript" src="chrome://pocketchange/content/PocketChange.js"/>
+	<!-- <script type="application/javascript" src="chrome://pocketchange/content/PocketChange.js"/> -->
 	<script type="application/javascript;version=1.7" src="filters.js"/> 
 
 	<vbox>

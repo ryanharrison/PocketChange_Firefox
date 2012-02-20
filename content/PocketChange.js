@@ -19,14 +19,27 @@ PocketChange.Settings = {
 		if ("undefined" == typeof(status)) {
 			return this._taxReminder;
 		} else {
+			// Set new value
 			this._taxReminder = status;
+			// Update settings file
+			PocketChange.Settings.export();
 		}
 	},
-	donationRate : function(rate) {
+	donationRate : function(stringFormat, rate) {
 		if ("undefined" == typeof(rate)) {
-			return this._donationRate;
+			
+			if (stringFormat) {
+				// return string format
+				return this._donationRate*100 +"";
+			} else {
+				// return double format
+				return this._donationRate;
+			}
 		} else {
-			this._donationRate = PocketChange.Settings.formatRate(rate);			
+			// Set new value
+			this._donationRate = PocketChange.Settings.formatRate(rate);
+			// Update settings file
+			PocketChange.Settings.export();
 		}
 	},
 	formatRate : function(rate) {
@@ -35,13 +48,33 @@ PocketChange.Settings = {
 		newRate = parseFloat(rate)/100;		
 		return newRate;
 	},
-	loadSettings : function() {
+	load : function(prevSettings) {
+		dump("settings.load...\n");		
 		
+		dump("prevSettings:\n");
+		dump(JSON.stringify(prevSettings, null, 2));
+		
+		// Update settings
+		this._donationRate = prevSettings.donationRate;
+		this._taxReminder = prevSettings.taxReminder;
+
+		// Update filters page
+		//PocketChangeChrome.Filters.updateValues();
 	},
-	saveSettings : function() {
-		var filename, data;
-		filename = "fubar.txt";
-		data = "lolz";
+	export : function() {
+		var filename, data, obj;
+		// Set filename
+		filename = "settings.json";		
+
+		// Create settings object
+		obj = {
+			donationRate : this._donationRate,
+			taxReminder : this._taxReminder
+		};
+		// Convert to JSON
+		data = JSON.stringify(obj, null, 2);
+
+		// Save to file
 		PocketChange.FileAccess.saveToFile(filename, data);
 	}
 }
@@ -163,6 +196,36 @@ PocketChange.FileAccess = {
 			// Data has been written to the file.
 		  	alert('Data has been written to the file');
 		});
+	},
+	read : function(filename, callback) {
+		var localDir, file, obj;
+
+		// Get the directory that the file will be saved in.
+		// If the directory does not exist, create it.
+		localDir = new FileUtils.getDir("ProfD",["pocketchange"], true, false);
+
+		// Append the filename.
+		localDir.append(filename);
+		
+		// Create a file object to store settings.
+		file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
+
+		// Inititalize the settings file (create it).
+		file.initWithPath(localDir.path);
+		
+		NetUtil.asyncFetch(file, function(inputStream, status) {
+			if (!Components.isSuccessCode(status)) {
+				// Handle error!
+				dump("READ ERROR\n");
+				return;
+			}
+
+			// The file data is contained within inputStream.
+			// You can read it into a string with			
+			var data = NetUtil.readInputStreamToString(inputStream, inputStream.available());
+			
+			callback(JSON.parse(data));
+		});
 	}
 }
 
@@ -179,7 +242,10 @@ PocketChange.SearchFilters = {
 				key : "keywords",
 				val : newZip
 			}
+			// Set new value
 			this._filters.zip = zip;
+			// Update filters file
+			PocketChange.SearchFilters.export();
 		} else {
 			dump("invalid zip: " + newZip + "\n");
 		}
@@ -193,12 +259,32 @@ PocketChange.SearchFilters = {
 		if (newSubject.key == "all") {
 			this._filters.subject = null;
 		} else {
+			// Set new value
 			this._filters.subject = newSubject;
+			// Update filters file
+			PocketChange.SearchFilters.export();
 		}
+	},
+	export : function() {
+		var filename, data, obj;
+		// Set filename
+		filename = "filters.json";
+		
+		// Convert to JSON
+		data = JSON.stringify(this._filters, null, 2);
+
+		// Save to file
+		PocketChange.FileAccess.saveToFile(filename, data);
 	}
 }
 
 PocketChange.Helper = {
+	init : function() {
+		dump("init passed...\n");
+		
+		// Load settings
+		PocketChange.FileAccess.read("settings.json", PocketChange.Settings.load);
+	},
 	html_entity_decode : function(str) {
 		str = str.replace(/&amp;/g,"&");
 		str = str.replace(/&#039;/g,"'");

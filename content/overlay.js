@@ -16,9 +16,7 @@ PocketChangeChrome.BrowserOverlay = {
   
   init : function(e) {    
     jQuery.noConflict();
-    //Components.utils.import("resource://pocketchange/PocketChange.js");
-
-    //window.addEventListener("dblclick", function(e) { PocketChangeChrome.BrowserOverlay.handleClicks(e); }, false);
+    PocketChange.Helper.init();
 
     jQuery(window).dblclick(function(){
       PocketChangeChrome.BrowserOverlay.handleClicks(e);

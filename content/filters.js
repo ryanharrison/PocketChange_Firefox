@@ -6,17 +6,41 @@ if ("undefined" == typeof(PocketChangeChrome)) {
 };
 
 PocketChangeChrome.Filters = {	
+	init : function() {
+		PocketChangeChrome.Filters.updateValues();
+	},
+	updateValues : function() {
+		var donationRate;
+
+		dump("updateValues\n");
+
+		donationRate = PocketChange.Settings.donationRate(true);
+		donationRate = donationRate;
+
+
+		// Set tax reminder checkbox
+		jQuery("#tax-reminder").attr({
+			checked : true
+		});
+
+		// Set donation rate
+		// jQuery("#donation-rate").attr({
+		// 	value : donationRate
+		// });
+
+		jQuery("#donation-rate").val(donationRate);
+	},
 	updateTaxReminder : function() {
 		var status;
 		status = jQuery("#tax-reminder").attr("checked");
 		
-		PocketChange.Settings.taxReminder(status);
+		PocketChange.Settings.taxReminder(status);		
 	},
 	updateDonationRate : function() {
 		var rate;
 
 		rate = jQuery("#donation-rate").val();
-		PocketChange.Settings.donationRate(rate);
+		PocketChange.Settings.donationRate(false, rate);
 	},
 	updateZip : function() {
 		var zip;		
@@ -58,5 +82,5 @@ PocketChangeChrome.Filters = {
 
 window.addEventListener("load", function(e) {
 	jQuery.noConflict();
-	
+	PocketChangeChrome.Filters.init();
 }, false);
