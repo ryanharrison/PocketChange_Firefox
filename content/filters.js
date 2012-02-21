@@ -9,22 +9,6 @@ PocketChangeChrome.Filters = {
 	init : function() {
 		dump("filters init...\n");
 
-		
-
-		// call nsIPrefBranch methods
-		var taxes = PocketChange.Prefs.get("taxes", "boolean");
-		var name = PocketChange.Prefs.get("name", "string");
-		var fubar = PocketChange.Prefs.get("fubar", "int");
-
-		if (taxes) {
-			dump("taxes: true\n");
-			dump("name : " + name + "\n");
-			dump("fubar: " + fubar + "\n");			
-		} else {
-			dump("taxes: false\n");
-		}
-
-
 		//PocketChangeChrome.Filters.updateValues();
 	},
 	updateValues : function() {
@@ -32,7 +16,7 @@ PocketChangeChrome.Filters = {
 
 		dump("updateValues\n");
 
-		donationRate = PocketChange.Settings.donationRate(true);
+		donationRate = PocketChange.Settings.donationRate();
 		donationRate = donationRate;
 
 
@@ -58,7 +42,7 @@ PocketChangeChrome.Filters = {
 		var rate;
 
 		rate = jQuery("#donation-rate").val();
-		PocketChange.Settings.donationRate(false, rate);
+		PocketChange.Settings.donationRate(rate);
 	},
 	updateZip : function() {
 		var zip;		

@@ -27,38 +27,49 @@ PocketChange.Prefs = {
 		}
 
 		return pref;
+	},
+	set : function(prefKey, prefValue, type) {
+		var pcPrefs;		
+		
+		// Instantiate the wrapper
+		pcPrefs = new PrefsWrapper1("extensions.pocketchange.");
+
+		if (type == "boolean") {
+			pcPrefs.setBoolPref(prefKey, prefValue);
+		} else if (type == "string") {
+			pcPrefs.setCharPref(prefKey, prefValue);
+		} else if (type == "int") {
+			pcPrefs.setIntPref(prefKey, prefValue);
+		}
 	}
 }
 
-PocketChange.Settings = {
-	_donationRate : 0.02,
-	_taxReminder : false,
+PocketChange.Settings = {	
+	_donationRate : 2,		// deprecated, remove later
+	_taxReminder : false,	// deprecated, remove later
 
 	taxReminder : function(status) {
 		if ("undefined" == typeof(status)) {
-			return this._taxReminder;
+			return PocketChange.Prefs.get("taxReminder", "boolean");
 		} else {
 			// Set new value
-			this._taxReminder = status;
+			PocketChange.Prefs.set("taxReminder", status, "boolean");
+			
+			// deprecated, remove later
 			// Update settings file
-			PocketChange.Settings.export();
+			//PocketChange.Settings.export();
 		}
 	},
-	donationRate : function(stringFormat, rate) {
-		if ("undefined" == typeof(rate)) {
-			
-			if (stringFormat) {
-				// return string format
-				return this._donationRate*100 +"";
-			} else {
-				// return double format
-				return this._donationRate;
-			}
+	donationRate : function(rate) {
+		if ("undefined" == typeof(rate)) {			
+			return PocketChange.Prefs.get("donationRate", "int");
 		} else {
-			// Set new value
-			this._donationRate = PocketChange.Settings.formatRate(rate);
+			// Set new value			
+			PocketChange.Prefs.set("donationRate", rate, "int");
+			
+			// deprecated, remove later
 			// Update settings file
-			PocketChange.Settings.export();
+			//PocketChange.Settings.export();
 		}
 	},
 	formatRate : function(rate) {
