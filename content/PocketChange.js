@@ -11,6 +11,25 @@ if ("undefined" == typeof(PocketChange)) {
   var PocketChange = {};  
 };
 
+PocketChange.Prefs = {	
+	get : function(prefKey, type) {
+		var pcPrefs, pref;
+		
+		// Instantiate the wrapper
+		pcPrefs = new PrefsWrapper1("extensions.pocketchange.");
+
+		if (type == "boolean") {
+			pref = pcPrefs.getBoolPref(prefKey);
+		} else if (type == "string") {
+			pref = pcPrefs.getCharPref(prefKey);
+		} else if (type == "int") {
+			pref = pcPrefs.getIntPref(prefKey);
+		}
+
+		return pref;
+	}
+}
+
 PocketChange.Settings = {
 	_donationRate : 0.02,
 	_taxReminder : false,
@@ -53,6 +72,7 @@ PocketChange.Settings = {
 		
 		dump("prevSettings:\n");
 		dump(JSON.stringify(prevSettings, null, 2));
+		dump("\n");
 		
 		// Update settings
 		this._donationRate = prevSettings.donationRate;

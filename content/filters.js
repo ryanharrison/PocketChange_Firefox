@@ -7,7 +7,25 @@ if ("undefined" == typeof(PocketChangeChrome)) {
 
 PocketChangeChrome.Filters = {	
 	init : function() {
-		PocketChangeChrome.Filters.updateValues();
+		dump("filters init...\n");
+
+		
+
+		// call nsIPrefBranch methods
+		var taxes = PocketChange.Prefs.get("taxes", "boolean");
+		var name = PocketChange.Prefs.get("name", "string");
+		var fubar = PocketChange.Prefs.get("fubar", "int");
+
+		if (taxes) {
+			dump("taxes: true\n");
+			dump("name : " + name + "\n");
+			dump("fubar: " + fubar + "\n");			
+		} else {
+			dump("taxes: false\n");
+		}
+
+
+		//PocketChangeChrome.Filters.updateValues();
 	},
 	updateValues : function() {
 		var donationRate;
