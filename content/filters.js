@@ -51,14 +51,16 @@ PocketChangeChrome.Filters = {
 		//PocketChangeChrome.Filters.testFilter("zip");
 	},
 	updateSubject : function() {
-		var sub, subKey, subVal;
+		var sub, subKey, subVal, subName;
 
 		subKey = jQuery(".subject:selected").attr("subKey");
 		subVal = jQuery(".subject:selected").attr("subVal");
+		subName = jQuery(".subject:selected").attr("label");
 
 		sub = {
 			key : subKey,
-			val : subVal
+			val : subVal,
+			name : subName
 		};
 		
 		PocketChange.SearchFilters.updateSubject(sub);

@@ -18,34 +18,34 @@ PocketChangeChrome.BrowserOverlay = {
     jQuery.noConflict();
     PocketChange.Helper.init();
 
+    // Check the "Enabled" menuitem if applicable
+    PocketChange.ButtonController.updateEnableCheck();
+    // Display the enabled/disabled button image
+    PocketChange.ButtonController.updateImage();
+
+    // Attach handler to double clicks to open form
     jQuery(window).dblclick(function(){
-      PocketChangeChrome.BrowserOverlay.handleClicks(e);
-    });    
+      if (PocketChange.Helper.isEnabled()) {
+        PocketChangeChrome.BrowserOverlay.handleClicks(e);
+      }
+    });
+
   },
 
   handleClicks : function(e) {
+    var cURI, win, localOrderAmount;
+    cURI = gBrowser.mCurrentBrowser.currentURI.spec;
+
+    if (PocketChange.Helper.isAmazon(cURI)) {  
+      win = window.content;
+      localOrderAmount = jQuery(win.document).contents().find("em.price").text();
+      //localOrderAmount = parseFloat(localOrderAmount);
+
+      PocketChange.FormController.orderAmount(localOrderAmount);
+
+      PocketChangeChrome.BrowserOverlay.openForm();
+    }
     
-    var pcConsole = Components.utils.reportError;
-
-    var win = window.content;
-    //var inputTest = jQuery(win.document.getElementById("album_name")).val();
-    var localOrderAmount = jQuery(win.document).contents().find("em.price").text();
-    //localOrderAmount = parseFloat(localOrderAmount);
-    
-    PocketChange.FormController.orderAmount(localOrderAmount);
-
-    /*
-    jQuery.each(location, function(key, element) {
-        dump('key: ' + key + '\n' + 'value: ' + element);
-    });
-    */
-    //dump(location.href);
-
-    // check what was clicked
-    // check what page it is
-    // handle it
-
-    PocketChangeChrome.BrowserOverlay.openForm();
   },
 
   openForm : function() {
@@ -56,21 +56,8 @@ PocketChangeChrome.BrowserOverlay = {
       ,"pcForm"
       ,"chrome,width="+formWidth+",height=600"
     );
-  },
-
-  /**
-   * Says 'Hello' to the user.
-   */
-  sayHello : function(aEvent) {    
-    let message;
-
-    PocketChange.Fubar.changeString("fubar101");
-    message = PocketChange.Fubar.rhString;    
-
-    window.alert(message);
   }
+  
 };
 
-
-//window.addEventListener("load", function(e) { PocketChangeChrome.BrowserOverlay.sayHello(e); }, false);
 window.addEventListener("load", function(e) { PocketChangeChrome.BrowserOverlay.init(e); }, false);

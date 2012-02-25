@@ -111,9 +111,45 @@ PocketChange.Settings = {
 }
 
 PocketChange.ButtonController = {
-	mainButtonClick : function() {
-		jQuery("#pocketchange-button").css("list-style-image","url('chrome://pocketchange/content/images/button_big_deselected.png'");		
+	mainButtonClick : function() {		
 		
+	},	
+	enable : function() {
+		if (PocketChange.Helper.isEnabled()) {
+			// Disable
+			PocketChange.Prefs.set("enabled", false, "boolean");			
+		} else {
+			// Enable
+			PocketChange.Prefs.set("enabled", true, "boolean");			
+		}
+
+		PocketChange.ButtonController.updateEnableCheck();
+		PocketChange.ButtonController.updateImage();
+	},
+	updateEnableCheck : function() {
+		if (PocketChange.Helper.isEnabled()) {
+			jQuery("#enabled-checkbox").attr({
+				checked : true
+			});
+		} else {
+			jQuery("#enabled-checkbox").attr({
+				checked : false
+			});
+		}
+	},
+	updateImage : function() {
+		var disabledURL, enabledURL;
+		
+		disabledURL = "chrome://pocketchange/content/images/button_big_deselected.png";
+		enabledURL = "chrome://pocketchange/content/images/button_big.png";
+
+		if (PocketChange.Helper.isEnabled()) {		
+			// Show disabled image
+			jQuery("#pocketchange-button").css("list-style-image","url('"+enabledURL+"'");
+		} else {			
+			// Show enabled image
+			jQuery("#pocketchange-button").css("list-style-image","url('"+disabledURL+"'");
+		}
 	},
 	pageClick : function(option) {
 		if (option == "filters") {
@@ -147,9 +183,11 @@ PocketChange.FormController = {
 	},		
 	orderAmount : function(newOrderAmount) {
 		if ("undefined" == typeof(newOrderAmount)) {
-			return this._orderAmount;
+			//return this._orderAmount;
+			return PocketChange.Prefs.get("orderAmt", "string");
 		} else {
-			this._orderAmount = newOrderAmount;
+			//this._orderAmount = newOrderAmount;
+			PocketChange.Prefs.set("orderAmt", newOrderAmount, "string");
 		}
 	},	
 	apiKey : function() {		
@@ -273,6 +311,8 @@ PocketChange.SearchFilters = {
 				key : "keywords",
 				val : newZip
 			}
+			// Update preferences
+			PocketChange.Prefs.set("zipCode", newZip, "int");
 			// Set new value
 			this._filters.zip = zip;
 			// Update filters file
@@ -286,10 +326,20 @@ PocketChange.SearchFilters = {
 		var zipCodePattern = /^\d{5}$/;
 		return zipCodePattern.test(zip);
 	},
-	updateSubject : function(newSubject) {
+	updateSubject : function(newSubject) {		
 		if (newSubject.key == "all") {
-			this._filters.subject = null;
+			// Update preferences
+			PocketChange.Prefs.set("subjectKey", "all", "string");
+			PocketChange.Prefs.set("subjectVal", "all", "string");
+			PocketChange.Prefs.set("subjectName", "all", "string");
+
+			this._filters.subject = null;			
 		} else {
+			// Update preferences
+			PocketChange.Prefs.set("subjectKey", newSubject.key, "string");
+			PocketChange.Prefs.set("subjectVal", newSubject.val, "string");
+			PocketChange.Prefs.set("subjectName", newSubject.name, "string");
+
 			// Set new value
 			this._filters.subject = newSubject;
 			// Update filters file
@@ -316,6 +366,9 @@ PocketChange.Helper = {
 		// Load settings
 		PocketChange.FileAccess.read("settings.json", PocketChange.Settings.load);
 	},
+	isEnabled : function() {
+		return PocketChange.Prefs.get("enabled", "boolean");
+	},
 	html_entity_decode : function(str) {
 		str = str.replace(/&amp;/g,"&");
 		str = str.replace(/&#039;/g,"'");
@@ -327,6 +380,16 @@ PocketChange.Helper = {
 		tab = browser.addTab(url);
 		// Focus the new tab, otherwise it will open in background
 		browser.selectedTab = tab;
+	},
+	isAmazon : function(url) {
+		var t1,t2;
+		
+		// If found, t1 is true
+		t1 = (url.indexOf("amazon.com") >= 0);
+		// If found, t2 is true
+		t2 = (url.indexOf("ref=ox_shipaddress_ship_to_this_3") >= 0);
+		
+		return (t1 && t2);
 	}
 	// dumpObject : function(obj) {
 	// 	dump("dumpObject:\n");

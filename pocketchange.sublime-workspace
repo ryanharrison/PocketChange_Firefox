@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"pref",
+				"prefKey"
+			],
+			[
+				"update",
+				"updateValues"
+			],
+			[
+				"donation",
+				"donationRate"
+			],
+			[
+				"chec",
+				"checked"
+			],
+			[
+				"donat",
+				"donationRate"
+			],
+			[
+				"Set",
+				"Settings"
+			],
+			[
+				"validate",
+				"validateDonationRate"
+			],
+			[
+				"open",
+				"openTab"
+			],
+			[
+				"se",
+				"select"
+			],
+			[
 				"settingsFile",
 				"settingsFilename"
 			],
@@ -135,40 +171,96 @@
 			"file": "chrome.manifest",
 			"settings":
 			{
-				"buffer_size": 410,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "content/form.xul",
-			"settings":
-			{
-				"buffer_size": 1410,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "content/form.js",
-			"settings":
-			{
-				"buffer_size": 7854,
-				"line_ending": "Unix"
+				"buffer_size": 0,
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "content/overlay.xul",
 			"settings":
 			{
-				"buffer_size": 1201,
-				"line_ending": "Unix"
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "content/overlay.js",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "content/form.xul",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "content/form.js",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "content/filters.xul",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "content/filters.js",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "content/prefutils.js",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "content/PocketChange.js",
 			"settings":
 			{
-				"buffer_size": 3715,
-				"line_ending": "Unix"
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "defaults/preferences/pocketchange.js",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/RyanHarrison/AppData/Roaming/Mozilla/Firefox/Profiles/3zzqu59b.extension_dev/pocketchange/settings.json",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/RyanHarrison/AppData/Roaming/Mozilla/Firefox/Profiles/3zzqu59b.extension_dev/pocketchange/filters.json",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -196,6 +288,10 @@
 	},
 	"file_history":
 	[
+		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/content/json2.js",
+		"/C/Users/RyanHarrison/AppData/Roaming/Mozilla/Firefox/Profiles/3zzqu59b.extension_dev/pocketchange/settings.json",
+		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/content/prefs.xul",
+		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/install.rdf",
 		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/content/io.js",
 		"/Z/xmt/xml/ui/CompanyAdmin/companyadmin.xml",
 		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/skin/button.css",
@@ -224,7 +320,6 @@
 		"/C/Users/RyanHarrison/Desktop/HelloWorld3/HelloWorld3/src/modules/messageCount.js",
 		"/C/Users/RyanHarrison/Desktop/HelloWorld3/HelloWorld3/src/modules/common.js",
 		"/C/Users/RyanHarrison/Desktop/HelloWorld3/HelloWorld3/src/chrome.manifest",
-		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/install.rdf",
 		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/content/hello.xul",
 		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/modules/test.js",
 		"/Z/xmt/js/xmt.js",
@@ -297,6 +392,25 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"updateProgress",
+			"progress",
+			".Settings",
+			"_donationRate",
+			".donationRate",
+			"donationRate",
+			"getIntPref",
+			"donationRate(",
+			"stringi",
+			"FileAccess",
+			"read",
+			"json",
+			"read",
+			"PocketChange.Settings.export();",
+			"donationRate",
+			"checkbox",
+			"foo=",
+			"html_entity_decode",
+			"html_entity",
 			"settingsDir",
 			"fubar",
 			"fPath",
@@ -322,6 +436,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"menuitem",
+			"subjectCode=",
+			"subjectCode",
 			"localDir",
 			"translations2",
 			"uploads",
@@ -345,15 +462,15 @@
 					"file": "chrome.manifest",
 					"settings":
 					{
-						"buffer_size": 410,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								410,
-								410
+								0,
+								0
 							]
 						],
 						"settings":
@@ -368,18 +485,18 @@
 				},
 				{
 					"buffer": 1,
-					"file": "content/form.xul",
+					"file": "content/overlay.xul",
 					"settings":
 					{
-						"buffer_size": 1410,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								461,
-								370
+								0,
+								0
 							]
 						],
 						"settings":
@@ -395,51 +512,46 @@
 				},
 				{
 					"buffer": 2,
-					"file": "content/form.js",
+					"file": "content/overlay.js",
 					"settings":
 					{
-						"buffer_size": 7854,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7727,
-								7727
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3740.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 1,
-			"sheets":
-			[
+				},
 				{
 					"buffer": 3,
-					"file": "content/overlay.xul",
+					"file": "content/form.xul",
 					"settings":
 					{
-						"buffer_size": 1201,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								534,
-								534
+								0,
+								0
 							]
 						],
 						"settings":
@@ -455,18 +567,18 @@
 				},
 				{
 					"buffer": 4,
-					"file": "content/PocketChange.js",
+					"file": "content/form.js",
 					"settings":
 					{
-						"buffer_size": 3715,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3661,
-								3661
+								0,
+								0
 							]
 						],
 						"settings":
@@ -475,7 +587,200 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1536.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "content/filters.xul",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "content/filters.js",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "content/prefutils.js",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 8,
+					"file": "content/PocketChange.js",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "defaults/preferences/pocketchange.js",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/C/Users/RyanHarrison/AppData/Roaming/Mozilla/Firefox/Profiles/3zzqu59b.extension_dev/pocketchange/settings.json",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "/C/Users/RyanHarrison/AppData/Roaming/Mozilla/Firefox/Profiles/3zzqu59b.extension_dev/pocketchange/filters.json",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

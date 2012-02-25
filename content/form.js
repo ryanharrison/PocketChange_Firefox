@@ -1,6 +1,3 @@
-//var pcConsole = Components.utils.reportError;
-//pcConsole('can haz debug?');
-
 if ("undefined" == typeof(PocketChangeChrome)) {
 	var PocketChangeChrome = {};
 };
@@ -47,8 +44,7 @@ PocketChangeChrome.FormOverlay = {
 			success: function(data){
 				dump("project AJAX request: success\n");
 				jQuery.each(data, function(key, element) {
-					dump(key + " : " + element);
-					dump("\n");
+					//dump(key + " : " + element + "\n");
 				});
 							
 				
@@ -119,6 +115,9 @@ PocketChangeChrome.FormOverlay = {
 		PocketChangeChrome.FormOverlay.updatePoverty();
 		PocketChangeChrome.FormOverlay.updateResource();
 		PocketChangeChrome.FormOverlay.updateProgress();
+		PocketChangeChrome.FormOverlay.updateProgressMeter();
+		
+		// updateDescription is causing an error
 		PocketChangeChrome.FormOverlay.updateDescription();
 		PocketChangeChrome.FormOverlay.updateLink();
 	},
@@ -145,7 +144,7 @@ PocketChangeChrome.FormOverlay = {
 		$progress = jQuery("<description>").attr({
 			id : 'project-progress',			
 			width : PocketChange.FormController.width() + "px"
-		});
+		});		
 
 		totalCost = PocketChange.ProjectsController.selectedProject().totalPrice;
 		costToComplete = PocketChange.ProjectsController.selectedProject().costToComplete;
@@ -155,12 +154,34 @@ PocketChangeChrome.FormOverlay = {
 		$progress.append( progressText );
 
 		// Remove any previous progress text
-		jQuery("#project-progress").remove();
+		jQuery("#project-progress").remove();		
 
 		// Update with new progress
-		jQuery("#progress-container").append( $progress );	
+		jQuery("#progress-container").append( $progress );		
 	},
+	updateProgressMeter : function() {
+		var $progressMeter, totalCost, costToComplete, raised, progress;
 
+		totalCost = PocketChange.ProjectsController.selectedProject().totalPrice;
+		costToComplete = PocketChange.ProjectsController.selectedProject().costToComplete;
+		raised =  totalCost - costToComplete;
+
+		// Calculate comletion percentage
+		progress = parseInt(100*(raised / totalCost));
+
+		$progressMeter = jQuery("<progressmeter>").attr({
+			id : 'project-progress-meter',
+			width : PocketChange.FormController.width() + "px",
+			mode : "determined",
+			value : progress + ""
+		});
+
+		// Remove any previous progress meters		
+		jQuery("#project-progress-meter").remove();
+
+		// Update with new progress		
+		jQuery("#progress-meter-container").append( $progressMeter );
+	},
 	updateSchool : function() {
 		var $school, schoolName, schoolText;
 		$school = jQuery("<description>").attr({

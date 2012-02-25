@@ -5,6 +5,7 @@
 	<!-- <script type="application/javascript" src="resource://pocketchange/jquery-1.7.1.js"/> -->
 	<script type="application/javascript" src="chrome://pocketchange/content/json2.js"/>
 	<script type="application/javascript" src="chrome://pocketchange/content/jquery-1.7.1.js"/>
+	<script type="application/javascript" src="chrome://pocketchange/content/prefutils.js"/>
 	<script type="application/javascript" src="chrome://pocketchange/content/PocketChange.js"/>
 	<script type="application/javascript;version=1.7" src="form.js"/> 
 
@@ -28,6 +29,7 @@
 		<hbox id="poverty-container"></hbox>
 		<hbox id="resource-container"></hbox>
 		<hbox id="progress-container"></hbox>
+		<hbox id="progress-meter-container"></hbox>
 		<hbox id="description-container"></hbox>
 		<hbox id="link-container"></hbox>
 	</vbox>

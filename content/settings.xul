@@ -4,74 +4,213 @@
 window {
     background-color: white;
 }
-
+ 
 #nav {
     text-align:right;
     font-size:20px;
 }
-
+ 
 #title {
     color:black;
     text-align:center;
     font-size:70px;
     font-weight:bold;
 }
-
+ 
 #label {
     text-align:center;
 }
-
+ 
 #button {
-    width: 20px:
+    width: 20px;
 }
 
+#settings_label {
+    width: 70px;
+}
+
+#user_data {
+    border: 1px solid black;
+    widht: 200px;
+}
+
+#switch {
+    font-weight:bold;
+}
+ 
 " type="text/css"?>
 <window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
     <grid>
         <columns>
             <column flex="1"/>
+			<column flex="1"/>
             <column flex="7"/>
         </columns>
         <rows>
             <row>
-                <button id="button" label="Replacing the image for now" image="logo.png"/>
-                <!--<image src='logo.png' width='135' height='130'/>-->
+                
+				<hbox><image src='logo.png' width='168' height='67'/></hbox>
+				<spacer style="width: 100em;"/>
                 <description id="nav" value="Home | Log Out"/>
             </row>
         </rows>
-    </grid>
-    <description id="title" value="Settings"/>
-    <separator align="vertical"/>
-    <separator align="vertical"/>
-    <separator align="vertical"/>
+    </grid> 
+    <box flex="1"><label class="header" id="title" value="Settings" halign="middle"/></box>
+    <spacer style="height: 50px"/>
     <grid>
         <columns>
+            <column flex="5"/>
             <column flex="1"/>
-            <column flex="1"/>
-            <column flex="1"/>
+            <column flex="5"/>
         </columns>
         <rows>
             <row>
                 <vbox>
-                </vbox>   
-                <description id="label" value="edit" style="text-align:left;"/>
+                </vbox>    
+                    <label value="Edit" onclick="window.open('http://www.donorschoose.org/')" style="text-align:left;"/>
                 <vbox>
                 </vbox>
             </row>
             <row>
                 <vbox>
                 </vbox>
-                <textbox value="Name: John Smith"/>
+                <vbox id="user_data">
+                    <hbox>
+                        <label value="Name:" id="settings_label"/>
+                        <description value="John Smith"/>
+                    </hbox>
+                    <hbox>
+                        <label value="Email:" id="settings_label"/>
+                        <description value="john.smith@gmail.com"/>
+                    </hbox>
+                    <hbox>
+                        <label value="Zip Code:" id="settings_label"/>
+                        <description value="98105"/>
+                    </hbox>
+                </vbox>
+                <vbox>
+                </vbox>
+            </row>
+            <row flex="1">
+                <vbox>
+                </vbox>
+                    <hbox>
+                        <label value="Change Password" onclick="window.open('http://www.donorschoose.org/')" flex="1"/>
+                        <label value="Delete Account" onclick="window.open('http://www.donorschoose.org/')" style="float: right;"/>
+                    </hbox>
+                <vbox>
+                </vbox>
+            </row>
+            <spacer style="height: 40px;"/>
+            <row>
+                <vbox>
+                </vbox>
+                    <hbox>
+                        <label value="Facebook Badge Sharing"/>
+                        <label value="OFF" id="switch"/>
+                    </hbox>
                 <vbox>
                 </vbox>
             </row>
             <row>
                 <vbox>
                 </vbox>
-                <textbox value="Email: john.smith@gmail.com"/>
+                    <hbox>
+                        <label value="Email Tax Reminder"/>
+                        <label value="OFF" id="switch"/>
+                    </hbox>
+                <vbox>
+                </vbox>
+            </row>
+            <row>
+                <vbox>
+                </vbox>
+                    <hbox>
+                        <label value="What is this?" onclick="window.open('http://www.donorschoose.org/')" style="float: right;"/>
+                    </hbox>
+                <vbox>
+                </vbox>
+            </row>
+            <spacer style="height: 40px;"/>
+            <row>
+                <vbox>
+                </vbox>
+                <hbox>
+                    <label value="Default Amount Being Donated"/>
+                </hbox>
+                <vbox>
+                </vbox>
+            </row>
+            <row>
+                <vbox>
+                </vbox>
+                <hbox>
+                    <vbox>
+                        <button label="+"/>
+                    </vbox>
+                    <vbox>
+                        <hbox><textbox value="2%" style="text-align:right"/></hbox>
+                    </vbox>
+                    <vbox>
+                        <button label="-"/>
+                    </vbox>
+                </hbox>
+                <vbox>
+                </vbox>
+            </row>
+            <spacer style="height: 40px;"/>
+            <row>
+                <vbox>
+                </vbox>
+                    <hbox>
+                        <label value="Default Project Filters"/>
+                    </hbox>
                 <vbox>
                 </vbox>
             </row>
         </rows>
     </grid>
+    <spacer style="height: 20px;"/>
+    <hbox>
+        <vbox flex="1">
+            <vbox>
+                <label value="Zip Code:" id="settings_label"/>
+            </vbox>
+            <vbox style="border: 1px solid black;">
+                <description value="98105"/>
+            </vbox>
+        </vbox>
+        <vbox flex="1">
+            <vbox>
+                <label value="Subject:" id="settings_label"/>
+            </vbox>
+            <vbox>
+                <menulist oncommand="PocketChangeChrome.Filters.updateSubject()">
+                    <menupopup>                      
+                        <menuitem subKey="all" subVal="all" class="subject" label="All Subjects" />
+                        <menuitem subKey="subject1" subVal="-1" class="subject" label="Music &amp; The Arts" />
+                        <menuitem subKey="subject2" subVal="-2" class="subject" label="Health &amp; Sports" />
+                        <menuitem subKey="subject6" subVal="-6" class="subject" label="Literacy &amp; Language" />
+                        <menuitem subKey="subject3" subVal="-3" class="subject" label="History &amp; Civics" />      
+                        <menuitem subKey="subject4" subVal="-4" class="subject" label="Math &amp; Science" />
+                        <menuitem subKey="subject7" subVal="-7" class="subject" label="Special Needs" />
+                        <menuitem subKey="subject5" subVal="-5" class="subject" label="Applied Learning" />
+                    </menupopup>
+                </menulist>
+            </vbox>
+        </vbox>
+        <vbox flex="1">
+            <vbox>
+                <label value="Poverty Level:" id="settings_label"/>
+            </vbox>
+            <vbox>
+                <menulist>
+                    <menupopup>
+                        <menuitem value="low_poverty" label="Low Poverty"/>
+                        <menuitem value="high_poverty" label="High Poverty"/>
+                    </menupopup>
+                </menulist>
+            </vbox>
+        </vbox>
+    </hbox>
 </window>
