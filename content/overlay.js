@@ -25,6 +25,7 @@ PocketChangeChrome.BrowserOverlay = {
 
     // Attach handler to double clicks to open form
     jQuery(window).dblclick(function(){
+      // Check if PocketChange is enabled
       if (PocketChange.Helper.isEnabled()) {
         PocketChangeChrome.BrowserOverlay.handleClicks(e);
       }
