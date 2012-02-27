@@ -23,6 +23,7 @@
 				<menuitem oncommand="PocketChange.ButtonController.enable();" type="checkbox" autocheck="true" label="Enabled" id="enabled-checkbox"/>
 				<menuitem oncommand="PocketChange.ButtonController.pageClick('filters');" label="Filters"/>
 				<menuitem oncommand="PocketChange.ButtonController.pageClick('donation-form');" label="Donation Form"/>
+				<menuitem oncommand="PocketChange.ButtonController.pageClick('preferences');" label="Options"/>
 			</menupopup>
 
 	  	</toolbarbutton>

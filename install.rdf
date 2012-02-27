@@ -7,13 +7,17 @@
     <em:id>pocketchange@pocketchange.me</em:id>
     <em:name>PocketChange (Firefox 1.5 or later edition)</em:name>
     <em:version>1.0</em:version>
+    <!-- TYPE 2 IS AN EXTENSION -->
+    <em:type>2</em:type>
     <em:description>An extension to facilitate micro-donations.</em:description>
     <em:creator>Ryan Harrison</em:creator>
+    <em:developer>Ryan Harrison</em:developer>
     <!-- optional items -->
     <!-- <em:contributor>Ryan Ewing</em:contributor>    -->
     
     <em:homepageURL>http://pocketchange.me</em:homepageURL>
-    <!-- em:optionsURL>chrome://sampleext/content/settings.xul</em:optionsURL> -->
+    <em:optionsURL>chrome://pocketchange/content/preferences.xul</em:optionsURL>
+    <em:optionsType>1</em:optionsType>
     <!-- <em:aboutURL>chrome://sampleext/content/about.xul</em:aboutURL> -->
     
     <em:iconURL>chrome://pocketchange/content/images/icon48.png</em:iconURL>
@@ -28,8 +32,7 @@
         <em:minVersion>1.5</em:minVersion>
         <em:maxVersion>10.0.1</em:maxVersion>
       </Description>
-    </em:targetApplication>
-    
+    </em:targetApplication>    
   </Description>
 
 </RDF>

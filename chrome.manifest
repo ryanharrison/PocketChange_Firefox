@@ -3,8 +3,8 @@ skin		pocketchange	classic/1.0 	skin/
 locale		pocketchange	en-US			locale/en-US/
 resource	pocketchange					modules/
 
-overlay	chrome://browser/content/browser.xul chrome://pocketchange/content/overlay.xul
+overlay		chrome://browser/content/browser.xul 			chrome://pocketchange/content/overlay.xul
 
-style	chrome://global/content/customizeToolbar.xul	chrome://pocketchange/skin/button.css
+style		chrome://global/content/customizeToolbar.xul	chrome://pocketchange/skin/button.css
 
-style	chrome://browser/content/browser.xul	chrome://pocketchange/skin/button.css
+style		chrome://browser/content/browser.xul			chrome://pocketchange/skin/button.css

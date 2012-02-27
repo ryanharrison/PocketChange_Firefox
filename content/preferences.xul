@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>   
+
+<prefwindow xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" title="PocketChange Options">
+  
+  <prefpane id="general-pane" label="General">
+    <preferences>
+      <preference 
+        id="email-pref" 
+        name="extensions.pocketchange.email"
+        type="string"        
+      />
+      <preference 
+        id="facebook-pref" 
+        name="extensions.pocketchange.facebookShare"
+        type="bool"
+      />
+      <preference 
+        id="tax-reminder-pref" 
+        name="extensions.pocketchange.taxReminder"
+        type="bool"
+      />
+    </preferences>
+    
+   <vbox>
+      <!-- EMAIL ADDRESS -->
+      <label value="Email" control="email" />
+      <textbox 
+        id="email" 
+        preference="email-pref"
+        emptytext="Email Address"
+      />
+
+      <!-- PASSWORD -->
+      <label value="Password" control="password" />
+      <textbox 
+        id="password" 
+        type="password"
+        preference="password-pref"
+        emptytext="Password"
+      />
+
+      <!--  FACEBOOK SHARE    -->
+      <checkbox 
+        id="facebook-share" 
+        preference="facebook-pref" 
+        label="Facebook Share"         
+      />
+
+      <!--  TAX REMINDER    -->
+      <checkbox 
+        id="tax-reminder" 
+        preference="tax-reminder-pref" 
+        label="Email Tax Reminder"         
+      />
+    </vbox>
+    
+  </prefpane>
+
+  <prefpane id="donations-pane" label="Donations">    
+    
+    <preferences>      
+      <preference 
+        id="zip-code-pref" 
+        name="extensions.pocketchange.zipCode"
+        type="string"        
+      />
+      <preference 
+        id="donation-rate-pref" 
+        name="extensions.pocketchange.donationRate"
+        type="int"        
+      />
+      <preference 
+        id="subject-pref" 
+        name="extensions.pocketchange.subject"
+        type="string"        
+      />
+      <preference 
+        id="poverty-pref" 
+        name="extensions.pocketchange.highPoverty"
+        type="bool"        
+      />
+    </preferences>
+
+    <!-- UI -->
+      <!--  DONATION RATE   -->
+      <label value="Donation Rate" control="donation-rate" />
+      <textbox 
+        id="donation-rate" 
+        preference="donation-rate-pref"        
+        type="number" 
+        hidespinbuttons="true" 
+        onchange="PocketChangeChrome.Filters.updateDonationRate();" 
+      />
+      
+      <groupbox>
+        <caption label="Project Filters" />
+        <!-- ZIP Code -->
+        <vbox>
+          <label value="ZIP Code" control="zip-code" />
+          <textbox 
+            id="zip-code" 
+            preference="zip-code-pref"           
+            hidespinbuttons="true" 
+            maxlength="5" 
+            emptytext="Enter your ZIP code"          
+            onchange="PocketChangeChrome.Filters.updateZip();" 
+          />
+        </vbox>
+
+        <!-- SUBJECT -->
+        <vbox>
+          <label value="Subjects" control="subject-list" />
+          <menulist id="subject-list" preference="subject-pref" oncommand="PocketChangeChrome.Filters.updateSubject()">
+            <menupopup>           
+              <menuitem subKey="all" subVal="all" value="all" class="subject" label="All Subjects" />
+              <menuitem subKey="subject1" subVal="-1" value="subject1=-1" class="subject" label="Music &amp; The Arts" />
+              <menuitem subKey="subject2" subVal="-2" value="subject2=-2" class="subject" label="Health &amp; Sports" />
+              <menuitem subKey="subject6" subVal="-6" value="subject6=-6" class="subject" label="Literacy &amp; Language" />
+              <menuitem subKey="subject3" subVal="-3" value="subject3=-3" class="subject" label="History &amp; Civics" />   
+            
+              <menuitem subKey="subject4" subVal="-4" value="subject4=-4" class="subject" label="Math &amp; Science" />
+              <menuitem subKey="subject7" subVal="-7" value="subject7=-7" class="subject" label="Special Needs" />
+              <menuitem subKey="subject5" subVal="-5" value="subject5=-5" class="subject" label="Applied Learning" />
+            </menupopup>
+          </menulist>
+        </vbox>
+
+        <!-- POVERTY LEVEL -->
+        <checkbox 
+          id="high-poverty" 
+          preference="poverty-pref" 
+          label="High Poverty Schools Only"         
+        />
+
+    </groupbox>
+
+  </prefpane>
+  
+</prefwindow>

@@ -1,8 +1,8 @@
 <?xml version="1.0"?> 
 <?xml-stylesheet href="chrome://pocketchange/skin/form.css" type="text/css"?> 
 <!DOCTYPE overlay SYSTEM "chrome://pocketchange/locale/form.dtd"> 
-<overlay id="pocketchange-form" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">	
-	<!-- <script type="application/javascript" src="resource://pocketchange/jquery-1.7.1.js"/> -->
+<overlay id="pocketchange-form" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	
 	<script type="application/javascript" src="chrome://pocketchange/content/json2.js"/>
 	<script type="application/javascript" src="chrome://pocketchange/content/jquery-1.7.1.js"/>
 	<script type="application/javascript" src="chrome://pocketchange/content/prefutils.js"/>
