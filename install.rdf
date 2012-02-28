@@ -16,7 +16,7 @@
     <!-- <em:contributor>Ryan Ewing</em:contributor>    -->
     
     <em:homepageURL>http://pocketchange.me</em:homepageURL>
-    <em:optionsURL>chrome://pocketchange/content/preferences.xul</em:optionsURL>
+    <em:optionsURL>chrome://pocketchange/content/options.xul</em:optionsURL>
     <em:optionsType>1</em:optionsType>
     <!-- <em:aboutURL>chrome://sampleext/content/about.xul</em:aboutURL> -->
     
