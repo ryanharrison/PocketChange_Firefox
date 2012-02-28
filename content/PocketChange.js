@@ -150,6 +150,12 @@ PocketChange.FormController = {
 	},
 	maxProjects : function() {		
 		return PocketChange.Prefs.get("maxProjects", "int");
+	},
+	apiData : function() {
+		var data;
+		data = {};
+
+		return data;
 	}
 
 }

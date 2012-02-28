@@ -143,9 +143,9 @@ PocketChangeChrome.FormOverlay = {
 			width : PocketChange.FormController.width() + "px"
 		});		
 
-		totalCost = PocketChange.ProjectsController.selectedProject().totalPrice;
-		costToComplete = PocketChange.ProjectsController.selectedProject().costToComplete;
-		raised =  totalCost - costToComplete;
+		totalCost = parseFloat(PocketChange.ProjectsController.selectedProject().totalPrice).toFixed(2);
+		costToComplete = parseFloat(PocketChange.ProjectsController.selectedProject().costToComplete).toFixed(2);
+		raised =  parseFloat(totalCost - costToComplete).toFixed(2);
 
 		progressText = "$" + raised + " of $" + totalCost + " raised. $" + costToComplete + " left to go.";
 		$progress.append( progressText );
