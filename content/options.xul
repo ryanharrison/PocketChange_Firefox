@@ -33,20 +33,26 @@
     </preferences>
     
    <vbox>
-      <!-- FIRST NAME -->
-      <label value="First Name" control="fname" />
-      <textbox 
-        id="fname" 
-        preference="fname-pref"
-        emptytext="First Name"
-      />
-      <!-- LAST NAME -->
-      <label value="Last Name" control="lname" />
-      <textbox 
-        id="lname" 
-        preference="lname-pref"
-        emptytext="Last Name"
-      />
+      <hbox>
+        <vbox>
+          <!-- FIRST NAME -->
+          <label value="First Name" control="fname" />
+          <textbox 
+            id="fname" 
+            preference="fname-pref"
+            emptytext="First Name"
+          />
+        </vbox>
+        <vbox>
+          <!-- LAST NAME -->
+          <label value="Last Name" control="lname" />
+          <textbox 
+            id="lname" 
+            preference="lname-pref"
+            emptytext="Last Name"
+          />
+        </vbox>
+    </hbox>
       <!-- EMAIL ADDRESS -->
       <label value="Email" control="email" />
       <textbox 
@@ -92,7 +98,7 @@
       <preference 
         id="donation-rate-pref" 
         name="extensions.pocketchange.donationRate"
-        type="int"        
+        type="int"              
       />
       <preference 
         id="subject-pref" 
@@ -115,7 +121,8 @@
           preference="donation-rate-pref"        
           type="number" 
           hidespinbuttons="true" 
-          onchange="PocketChangeChrome.Filters.updateDonationRate();" 
+          min="1"
+          size="4"          
         />
         <description>%</description>
       </hbox>
@@ -128,9 +135,9 @@
             id="zip-code" 
             preference="zip-code-pref"           
             hidespinbuttons="true" 
-            maxlength="5" 
-            emptytext="Enter your ZIP code"          
-            onchange="PocketChangeChrome.Filters.updateZip();" 
+            maxlength="5"
+            size="5" 
+            emptytext="Enter your ZIP code"            
           />
         </vbox>
 

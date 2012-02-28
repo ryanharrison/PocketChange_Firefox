@@ -115,6 +115,10 @@ PocketChange.ButtonController = {
 			PocketChange.Helper.openTab("chrome://pocketchange/content/filters.xul");
 		} else if (option == "donation-form") {
 			PocketChange.Helper.openTab("chrome://pocketchange/content/form.xul");
+		} else if (option == "options") {
+			var features = "chrome,titlebar,toolbar,centerscreen,modal";
+			var url = "chrome://pocketchange/content/options.xul";
+			window.openDialog(url, "Settings", features);
 		}
 	}
 }

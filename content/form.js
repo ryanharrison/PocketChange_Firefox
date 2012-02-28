@@ -43,8 +43,6 @@ PocketChangeChrome.FormOverlay = {
 				PocketChange.Helper.dump(c);				
 			},
 			success: function(data){
-				PocketChange.Helper.dump("project AJAX request: success");
-				
 				PocketChangeChrome.FormOverlay.appendProjects(data.proposals);				
 				PocketChangeChrome.FormOverlay.changeProject();
 			}
