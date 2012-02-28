@@ -37,16 +37,13 @@ PocketChangeChrome.FormOverlay = {
 			dataType: 'json',
 			error: function(a,b,c){
 				alert('ERROR: AJAX call failed (getProjects), check console.');
-				dump("getProjects AJAX fail\n");
-				dump(a,b,c);
-				dump("\n");
+				PocketChange.Helper.dump("getProjects AJAX fail");
+				PocketChange.Helper.dump(a);
+				PocketChange.Helper.dump(b);
+				PocketChange.Helper.dump(c);				
 			},
 			success: function(data){
-				dump("project AJAX request: success\n");
-				jQuery.each(data, function(key, element) {
-					//dump(key + " : " + element + "\n");
-				});
-							
+				PocketChange.Helper.dump("project AJAX request: success");
 				
 				PocketChangeChrome.FormOverlay.appendProjects(data.proposals);				
 				PocketChangeChrome.FormOverlay.changeProject();
@@ -107,7 +104,7 @@ PocketChangeChrome.FormOverlay = {
 		// Update PocketChange.ProjectsController with new project
 		PocketChange.ProjectsController.selectedProject(PocketChange.ProjectsController.getProjectById(newProjectId));
 
-		dump(PocketChange.ProjectsController.selectedProject().shortDescription + "\n\n");
+		//PocketChange.Helper.dump(PocketChange.ProjectsController.selectedProject().shortDescription);
 
 		// Update form
 		PocketChangeChrome.FormOverlay.updateSubject();

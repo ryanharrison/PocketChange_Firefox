@@ -36,7 +36,9 @@ PocketChangeChrome.BrowserOverlay = {
   handleClicks : function(e) {
     var cURI, win, localOrderAmount;
     cURI = gBrowser.mCurrentBrowser.currentURI.spec;
-
+    
+   // remove this and uncomment below
+   PocketChangeChrome.BrowserOverlay.openForm();
     if (PocketChange.Helper.isAmazon(cURI)) {  
       win = window.content;
       localOrderAmount = jQuery(win.document).contents().find("em.price").text();
@@ -44,7 +46,7 @@ PocketChangeChrome.BrowserOverlay = {
 
       PocketChange.FormController.orderAmount(localOrderAmount);
 
-      PocketChangeChrome.BrowserOverlay.openForm();
+      //PocketChangeChrome.BrowserOverlay.openForm();
     }
     
   },

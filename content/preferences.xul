@@ -3,12 +3,22 @@
 
 <prefwindow xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" title="PocketChange Options">
   
-  <prefpane id="general-pane" label="General">
+  <prefpane id="general-pane" label="General"  image="chrome://pocketchange/content/images/icon_general.png">
     <preferences>
+      <preference 
+        id="fname-pref" 
+        name="extensions.pocketchange.fname"
+        type="string"
+      />
+      <preference 
+        id="lname-pref" 
+        name="extensions.pocketchange.lname"
+        type="string"
+      />
       <preference 
         id="email-pref" 
         name="extensions.pocketchange.email"
-        type="string"        
+        type="string"
       />
       <preference 
         id="facebook-pref" 
@@ -23,6 +33,20 @@
     </preferences>
     
    <vbox>
+      <!-- FIRST NAME -->
+      <label value="First Name" control="fname" />
+      <textbox 
+        id="fname" 
+        preference="fname-pref"
+        emptytext="First Name"
+      />
+      <!-- LAST NAME -->
+      <label value="Last Name" control="lname" />
+      <textbox 
+        id="lname" 
+        preference="lname-pref"
+        emptytext="Last Name"
+      />
       <!-- EMAIL ADDRESS -->
       <label value="Email" control="email" />
       <textbox 
@@ -57,7 +81,7 @@
     
   </prefpane>
 
-  <prefpane id="donations-pane" label="Donations">    
+  <prefpane id="donations-pane" label="Donations" image="chrome://pocketchange/content/images/icon_donations.png">    
     
     <preferences>      
       <preference 
@@ -84,15 +108,17 @@
 
     <!-- UI -->
       <!--  DONATION RATE   -->
-      <label value="Donation Rate" control="donation-rate" />
-      <textbox 
-        id="donation-rate" 
-        preference="donation-rate-pref"        
-        type="number" 
-        hidespinbuttons="true" 
-        onchange="PocketChangeChrome.Filters.updateDonationRate();" 
-      />
-      
+      <hbox>
+        <label value="Donation Rate" control="donation-rate" />
+        <textbox 
+          id="donation-rate" 
+          preference="donation-rate-pref"        
+          type="number" 
+          hidespinbuttons="true" 
+          onchange="PocketChangeChrome.Filters.updateDonationRate();" 
+        />
+        <description>%</description>
+      </hbox>
       <groupbox>
         <caption label="Project Filters" />
         <!-- ZIP Code -->

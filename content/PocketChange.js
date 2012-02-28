@@ -3,8 +3,8 @@ var EXPORTED_SYMBOLS = [ "PocketChange" ];
 //const Cc = Components.classes;
 //const Ci = Components.interfaces;	
 
-Components.utils.import("resource://gre/modules/NetUtil.jsm");  
-Components.utils.import("resource://gre/modules/FileUtils.jsm"); 
+//Components.utils.import("resource://gre/modules/NetUtil.jsm");  
+//Components.utils.import("resource://gre/modules/FileUtils.jsm"); 
 
 
 if ("undefined" == typeof(PocketChange)) {
@@ -44,20 +44,13 @@ PocketChange.Prefs = {
 	}
 }
 
-PocketChange.Settings = {	
-	_donationRate : 2,		// deprecated, remove later
-	_taxReminder : false,	// deprecated, remove later
-
+PocketChange.Settings = {
 	taxReminder : function(status) {
 		if ("undefined" == typeof(status)) {
 			return PocketChange.Prefs.get("taxReminder", "boolean");
 		} else {
 			// Set new value
 			PocketChange.Prefs.set("taxReminder", status, "boolean");
-			
-			// deprecated, remove later
-			// Update settings file
-			//PocketChange.Settings.export();
 		}
 	},
 	donationRate : function(rate) {
@@ -65,49 +58,15 @@ PocketChange.Settings = {
 			return PocketChange.Prefs.get("donationRate", "int");
 		} else {
 			// Set new value			
-			PocketChange.Prefs.set("donationRate", rate, "int");
-			
-			// deprecated, remove later
-			// Update settings file
-			//PocketChange.Settings.export();
+			PocketChange.Prefs.set("donationRate", rate, "int");			
 		}
 	},
 	formatRate : function(rate) {
 		var newRate;
 		// Convert 5 => 0.05
-		newRate = parseFloat(rate)/100;		
+		newRate = parseFloat(rate)/100;
 		return newRate;
-	},
-	load : function(prevSettings) {
-		dump("settings.load...\n");		
-		
-		dump("prevSettings:\n");
-		dump(JSON.stringify(prevSettings, null, 2));
-		dump("\n");
-		
-		// Update settings
-		this._donationRate = prevSettings.donationRate;
-		this._taxReminder = prevSettings.taxReminder;
-
-		// Update filters page
-		//PocketChangeChrome.Filters.updateValues();
-	},
-	export : function() {
-		var filename, data, obj;
-		// Set filename
-		filename = "settings.json";		
-
-		// Create settings object
-		obj = {
-			donationRate : this._donationRate,
-			taxReminder : this._taxReminder
-		};
-		// Convert to JSON
-		data = JSON.stringify(obj, null, 2);
-
-		// Save to file
-		PocketChange.FileAccess.saveToFile(filename, data);
-	}
+	}	
 }
 
 PocketChange.ButtonController = {
@@ -162,10 +121,8 @@ PocketChange.ButtonController = {
 
 PocketChange.FormController = {
 	_formWidth : 300,	// Width in pixels
-	_formHeader : 'PocketChange',
-	_orderAmount : 57.77,	
+	_formHeader : 'PocketChange',	
 	_APIKEY : "DONORSCHOOSE",	
-	_maxProjects : 5,
 
 	width : function(newWidth) {
 		if ("undefined" == typeof(newWidth)) {
@@ -182,19 +139,17 @@ PocketChange.FormController = {
 		}
 	},		
 	orderAmount : function(newOrderAmount) {
-		if ("undefined" == typeof(newOrderAmount)) {
-			//return this._orderAmount;
+		if ("undefined" == typeof(newOrderAmount)) {			
 			return PocketChange.Prefs.get("orderAmt", "string");
-		} else {
-			//this._orderAmount = newOrderAmount;
+		} else {			
 			PocketChange.Prefs.set("orderAmt", newOrderAmount, "string");
 		}
 	},	
 	apiKey : function() {		
 		return this._APIKEY;
 	},
-	maxProjects : function() {
-		return this._maxProjects;
+	maxProjects : function() {		
+		return PocketChange.Prefs.get("maxProjects", "int");
 	}
 
 }
@@ -258,7 +213,7 @@ PocketChange.FileAccess = {
 			if (!Components.isSuccessCode(status)) {  
 				// Handle error!  
 				alert('found error');
-				dump("file error:\n"+status+"\n\n");
+				PocketChange.Helper.dump("file error:\n"+status);
 				return;  
 			}
 			
@@ -285,7 +240,7 @@ PocketChange.FileAccess = {
 		NetUtil.asyncFetch(file, function(inputStream, status) {
 			if (!Components.isSuccessCode(status)) {
 				// Handle error!
-				dump("READ ERROR\n");
+				PocketChange.Helper.dump("READ ERROR");
 				return;
 			}
 
@@ -314,11 +269,9 @@ PocketChange.SearchFilters = {
 			// Update preferences
 			PocketChange.Prefs.set("zipCode", newZip, "int");
 			// Set new value
-			this._filters.zip = zip;
-			// Update filters file
-			PocketChange.SearchFilters.export();
+			this._filters.zip = zip;			
 		} else {
-			dump("invalid zip: " + newZip + "\n");
+			PocketChange.Helper.dump("invalid zip: " + newZip + "\n");
 		}
 	},
 	// Tests if the ZIP code is a 5 digit number
@@ -338,33 +291,14 @@ PocketChange.SearchFilters = {
 			// Update preferences
 			PocketChange.Prefs.set("subjectKey", newSubject.key, "string");
 			PocketChange.Prefs.set("subjectVal", newSubject.val, "string");
-			PocketChange.Prefs.set("subjectName", newSubject.name, "string");
-
-			// Set new value
-			this._filters.subject = newSubject;
-			// Update filters file
-			PocketChange.SearchFilters.export();
+			PocketChange.Prefs.set("subjectName", newSubject.name, "string");	
 		}
-	},
-	export : function() {
-		var filename, data, obj;
-		// Set filename
-		filename = "filters.json";
-		
-		// Convert to JSON
-		data = JSON.stringify(this._filters, null, 2);
-
-		// Save to file
-		PocketChange.FileAccess.saveToFile(filename, data);
 	}
 }
 
 PocketChange.Helper = {
-	init : function() {
-		dump("init passed...\n");
+	init : function() {		
 		
-		// Load settings
-		PocketChange.FileAccess.read("settings.json", PocketChange.Settings.load);
 	},
 	isEnabled : function() {
 		return PocketChange.Prefs.get("enabled", "boolean");
@@ -390,18 +324,8 @@ PocketChange.Helper = {
 		t2 = (url.indexOf("ref=ox_shipaddress_ship_to_this_3") >= 0);
 		
 		return (t1 && t2);
+	},
+	dump : function(data) {		
+		dump(data + "\n");
 	}
-	// dumpObject : function(obj) {
-	// 	dump("dumpObject:\n");
-	// 	if (obj == null) {
-	// 		dump("obj is null...\n");
-	// 	} else {
-	// 		var depth;
-	// 		depth = 0;
-	// 		jQuery.each(obj, function(key, val) {
-				
-	// 		});
-	// 	}		
-
-	// }
 }

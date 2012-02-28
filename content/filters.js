@@ -7,14 +7,14 @@ if ("undefined" == typeof(PocketChangeChrome)) {
 
 PocketChangeChrome.Filters = {	
 	init : function() {
-		dump("filters init...\n");
+		PocketChange.Helper.dump("filters init...");
 
 		//PocketChangeChrome.Filters.updateValues();
 	},
 	updateValues : function() {
 		var donationRate;
 
-		dump("updateValues\n");
+		PocketChange.Helper.dump("updateValues");
 
 		donationRate = PocketChange.Settings.donationRate();
 		donationRate = donationRate;
@@ -47,8 +47,7 @@ PocketChangeChrome.Filters = {
 	updateZip : function() {
 		var zip;		
 		zip = jQuery("#zip-code").val();
-		PocketChange.SearchFilters.updateZip(zip);
-		//PocketChangeChrome.Filters.testFilter("zip");
+		PocketChange.SearchFilters.updateZip(zip);		
 	},
 	updateSubject : function() {
 		var sub, subKey, subVal, subName;
@@ -64,18 +63,16 @@ PocketChangeChrome.Filters = {
 		};
 		
 		PocketChange.SearchFilters.updateSubject(sub);
-		
-		//PocketChangeChrome.Filters.testFilter("subject");
 	},
 	testFilter : function(filter) {
 		var test;
 
-		dump("testFilter: " + filter + "\n");
+		PocketChange.Helper.dump("testFilter: " + filter);
 		test = PocketChange.SearchFilters.get();
 		try{
-			dump(test[filter].key + "=" + test[filter].val + "\n\n");
+			PocketChange.Helper.dump(test[filter].key + "=" + test[filter].val);
 		} catch(error) {
-			dump("TEST FAILED:" + error + "\n");
+			PocketChange.Helper.dump("TEST FAILED:" + error);
 		}
 	}
 	
