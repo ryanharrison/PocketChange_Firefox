@@ -23,30 +23,28 @@ PocketChangeChrome.FormOverlay = {
 	},
 
 	getProjects : function() {	
-		jQuery.ajax({
-			type: 'GET',
-			url: 'http://api.donorschoose.org/common/json_feed.html',
-			data: {
-				APIKey : PocketChange.FormController.apiKey(),
-				max : PocketChange.FormController.maxProjects(),
-				//'showSynopsis' : true,
-				//'subject1' : "12"
-				//keywords : "Sports"
-				keywords : "Music"
-			},
-			dataType: 'json',
-			error: function(a,b,c){
-				alert('ERROR: AJAX call failed (getProjects), check console.');
-				PocketChange.Helper.dump("getProjects AJAX fail");
-				PocketChange.Helper.dump(a);
-				PocketChange.Helper.dump(b);
-				PocketChange.Helper.dump(c);				
-			},
-			success: function(data){
-				PocketChangeChrome.FormOverlay.appendProjects(data.proposals);				
-				PocketChangeChrome.FormOverlay.changeProject();
-			}
-		});
+		try {
+			jQuery.ajax({
+				type: 'GET',
+				url: 'http://api.donorschoose.org/common/json_feed.html',				
+				data: PocketChange.FormController.apiData(),
+				dataType: 'json',
+				error: function(a,b,c){
+					alert('ERROR: AJAX call failed (getProjects), check console.');
+					PocketChange.Helper.dump("getProjects AJAX fail");
+					PocketChange.Helper.dump(a);
+					PocketChange.Helper.dump(b);
+					PocketChange.Helper.dump(c);				
+				},
+				success: function(data){
+					PocketChangeChrome.FormOverlay.appendProjects(data.proposals);				
+					PocketChangeChrome.FormOverlay.changeProject();
+				}
+			});
+		} catch(err) {
+			alert("DonorsChoose API call failed");
+			PocketChange.Helper.dump(err);
+		}
 	},	
 
 	appendProjects : function(projects) {
@@ -61,7 +59,6 @@ PocketChangeChrome.FormOverlay = {
 		$projectPopup = jQuery("<menupopup>");
 
 		jQuery.each(projects, function(key, curProject) {
-
 			var $newProject;
 
 			// Update PocketChange.js

@@ -31,11 +31,6 @@ PocketChangeChrome.BrowserOverlay = {
       }
     });
 
-
-
-    // Debug for PocketChange.FormController.apiData
-    //PocketChange.FormController.apiData();
-
   },
 
   handleClicks : function(e) {

@@ -207,17 +207,68 @@ PocketChange.FormController = {
 
 	},
 	apiData : function() {
-		var data, zipPref, subjectPref, povertyPref;
+		var data, zipPref, subjectPref, povertyPref, subject, toString;
 		data = {};
 
 		PocketChange.Helper.dump("BEGIN APIDATA...");
 
 		// Get prefs
-		//zipPref = PocketChange.Prefs.get("zipCode", "string");
-		//subjectPref = PocketChange.Prefs.get("subject", "string");
-		//povertyPref = PocketChange.Prefs.get("highPoverty", "boolean");
+		zipPref = PocketChange.Prefs.get("zipCode", "string");
+		subjectPref = PocketChange.Prefs.get("subject", "string");
+		povertyPref = PocketChange.Prefs.get("highPoverty", "boolean");
 
+		// Add the API key
+		data.APIKey = PocketChange.FormController.apiKey();
 
+		// Set the number of projects to return
+		data.max = PocketChange.FormController.maxProjects();
+
+		// Format ZIP code filter
+		if (zipPref.hasPref) {
+			// Check if it's a valid zip
+			if (zipPref.pref.length == 5) {
+				//data.keywords = '"' + zipPref.pref +'"';
+				data.keywords = zipPref.pref;
+			}
+		}
+
+		// Format subject filter
+		if (subjectPref.hasPref) {
+			// Don't add subject filter if set to all subjects
+			if (subjectPref.pref != "all") {
+				// This converts 'subject1=-1' to 'data.subject1 = -1'
+				// Split the subject into key/value
+				subject = subjectPref.pref.split("=");			
+
+				// Set key/value
+				data[subject[0]] = subject[1];
+			}
+		}
+
+		// Format high poverty filter
+		if (povertyPref.hasPref) {
+			// Check if this filter is on
+			if (povertyPref.pref) {
+				data.highLevelPoverty = "true";
+			}
+		}
+
+		// Format toString
+		toString = "";
+		jQuery.each(data, function(key, val) {
+			// Fencepost...
+			if (toString.length == 0) {
+				toString = toString + key + "=" + val;
+			} else {
+				toString = toString + "&" + key + "=" + val;
+			}
+		});
+
+		data.toString = function() {
+			return toString;
+		}
+
+		PocketChange.Helper.dump(data.toString());
 		return data;
 	}
 
