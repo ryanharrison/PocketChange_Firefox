@@ -13,20 +13,38 @@ if ("undefined" == typeof(PocketChange)) {
 
 PocketChange.Prefs = {	
 	get : function(prefKey, type) {
-		var pcPrefs, pref;
+		var pcPrefs, data;
 		
 		// Instantiate the wrapper
 		pcPrefs = new PrefsWrapper1("extensions.pocketchange.");
 
+		data = {};
+		data.key = prefKey;
+
 		if (type == "boolean") {
-			pref = pcPrefs.getBoolPref(prefKey);
+			try {
+				data.pref = pcPrefs.getBoolPref(prefKey);				
+				data.hasPref = true;
+			} catch(err) {
+				data.hasPref = false;
+			}
 		} else if (type == "string") {
-			pref = pcPrefs.getCharPref(prefKey);
+			try {
+				data.pref = pcPrefs.getCharPref(prefKey);
+				data.hasPref = true;
+			} catch(err) {
+				data.hasPref = false;
+			}
 		} else if (type == "int") {
-			pref = pcPrefs.getIntPref(prefKey);
+			try {
+				data.pref = pcPrefs.getIntPref(prefKey);
+				data.hasPref = true;
+			} catch(err) {
+				data.hasPref = false;
+			}
 		}
 
-		return pref;
+		return data;
 	},
 	set : function(prefKey, prefValue, type) {
 		var pcPrefs;		
@@ -47,7 +65,16 @@ PocketChange.Prefs = {
 PocketChange.Settings = {
 	taxReminder : function(status) {
 		if ("undefined" == typeof(status)) {
-			return PocketChange.Prefs.get("taxReminder", "boolean");
+			var pref;
+			pref = PocketChange.Prefs.get("taxReminder", "boolean");
+			
+			if (pref.hasPref) {
+				return pref.pref;
+			} else {
+				alert("Pref not found: taxReminder");
+			}
+
+			
 		} else {
 			// Set new value
 			PocketChange.Prefs.set("taxReminder", status, "boolean");
@@ -55,7 +82,15 @@ PocketChange.Settings = {
 	},
 	donationRate : function(rate) {
 		if ("undefined" == typeof(rate)) {			
-			return PocketChange.Prefs.get("donationRate", "int");
+			var pref;
+			pref = PocketChange.Prefs.get("donationRate", "int");
+
+			if (pref.hasPref) {
+				return pref.pref;
+			} else {
+				alert("Pref not found: donationRate");
+			}
+
 		} else {
 			// Set new value			
 			PocketChange.Prefs.set("donationRate", rate, "int");			
@@ -144,7 +179,15 @@ PocketChange.FormController = {
 	},		
 	orderAmount : function(newOrderAmount) {
 		if ("undefined" == typeof(newOrderAmount)) {			
-			return PocketChange.Prefs.get("orderAmt", "string");
+			var pref;
+			pref = PocketChange.Prefs.get("orderAmt", "string");
+
+			if (pref.hasPref) {
+				return pref.pref;
+			} else {
+				alert("Pref not found: orderAmount");
+			}
+
 		} else {			
 			PocketChange.Prefs.set("orderAmt", newOrderAmount, "string");
 		}
@@ -153,11 +196,27 @@ PocketChange.FormController = {
 		return this._APIKEY;
 	},
 	maxProjects : function() {		
-		return PocketChange.Prefs.get("maxProjects", "int");
+		var pref;
+		pref = PocketChange.Prefs.get("maxProjects", "int");
+
+		if (pref.hasPref) {
+			return pref.pref;
+		} else {
+			alert("Pref not found: maxProjects");
+		}
+
 	},
 	apiData : function() {
-		var data;
+		var data, zipPref, subjectPref, povertyPref;
 		data = {};
+
+		PocketChange.Helper.dump("BEGIN APIDATA...");
+
+		// Get prefs
+		//zipPref = PocketChange.Prefs.get("zipCode", "string");
+		//subjectPref = PocketChange.Prefs.get("subject", "string");
+		//povertyPref = PocketChange.Prefs.get("highPoverty", "boolean");
+
 
 		return data;
 	}
@@ -311,7 +370,15 @@ PocketChange.Helper = {
 		
 	},
 	isEnabled : function() {
-		return PocketChange.Prefs.get("enabled", "boolean");
+		var pref;
+		pref = PocketChange.Prefs.get("enabled", "boolean");
+		
+		if (pref.hasPref) {
+			return pref.pref;
+		} else {
+			alert("Pref not found: isEnabled");
+		}
+
 	},
 	html_entity_decode : function(str) {
 		str = str.replace(/&amp;/g,"&");

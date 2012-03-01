@@ -199,7 +199,7 @@
 			"file": "content/overlay.xul",
 			"settings":
 			{
-				"buffer_size": 1748,
+				"buffer_size": 1745,
 				"line_ending": "Unix"
 			}
 		},
@@ -223,8 +223,16 @@
 			"file": "content/form.js",
 			"settings":
 			{
-				"buffer_size": 8594,
+				"buffer_size": 8526,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "content/options.xul",
+			"settings":
+			{
+				"buffer_size": 5301,
+				"line_ending": "Windows"
 			}
 		},
 		{
@@ -236,43 +244,10 @@
 			}
 		},
 		{
-			"file": "content/preferences.xul",
-			"settings":
-			{
-				"buffer_size": 5217,
-				"line_ending": "Windows",
-				"name": "<prefwindow id=\"appPreferences\""
-			}
-		},
-		{
-			"file": "locale/en-US/options.dtd",
-			"settings":
-			{
-				"buffer_size": 127,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "content/filters.xul",
-			"settings":
-			{
-				"buffer_size": 2647,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "content/settings.xul",
-			"settings":
-			{
-				"buffer_size": 6880,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "content/PocketChange.js",
 			"settings":
 			{
-				"buffer_size": 8804,
+				"buffer_size": 9011,
 				"line_ending": "Unix"
 			}
 		},
@@ -280,7 +255,7 @@
 			"file": "defaults/preferences/pocketchange.js",
 			"settings":
 			{
-				"buffer_size": 143,
+				"buffer_size": 191,
 				"line_ending": "Windows"
 			}
 		}
@@ -309,12 +284,15 @@
 	},
 	"file_history":
 	[
-		"/Z/release_manager/tasklist_edit.php",
+		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/content/filters.xul",
+		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/content/settings.xul",
+		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/content/preferences.xul",
+		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/install.rdf",
 		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/locale/en-US/options.dtd",
+		"/Z/release_manager/tasklist_edit.php",
 		"/C/School/INFO 490/dev/extension/HelloWorld3/HelloWorld3/src/chrome/content/browserOverlay.xul",
 		"/C/School/INFO 490/dev/extension/HelloWorld3/HelloWorld3/src/chrome/locale/en-US/browserOverlay.dtd",
 		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/locale/en-US/preferences.dtd",
-		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/install.rdf",
 		"/Z/xmt/store_translations.php",
 		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/content/prefutils.js",
 		"/C/Users/RyanHarrison/AppData/Roaming/Mozilla/Firefox/Profiles/3zzqu59b.extension_dev/pocketchange/filters.json",
@@ -422,6 +400,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"preferences.xul",
 			".FileAccess",
 			"FileAc",
 			"dump",
@@ -515,7 +494,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -549,15 +528,15 @@
 					"file": "content/overlay.xul",
 					"settings":
 					{
-						"buffer_size": 1748,
+						"buffer_size": 1745,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1671,
-								1671
+								1668,
+								1668
 							]
 						],
 						"settings":
@@ -583,8 +562,8 @@
 						"selection":
 						[
 							[
-								993,
-								993
+								1498,
+								1627
 							]
 						],
 						"settings":
@@ -631,15 +610,15 @@
 					"file": "content/form.js",
 					"settings":
 					{
-						"buffer_size": 8594,
+						"buffer_size": 8526,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4274,
-								4274
+								1128,
+								1128
 							]
 						],
 						"settings":
@@ -648,13 +627,41 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1530.0,
+						"translation.y": 160.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 5,
+					"file": "content/options.xul",
+					"settings":
+					{
+						"buffer_size": 5301,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4333,
+								4344
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1485.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
 					"file": "content/filters.js",
 					"settings":
 					{
@@ -679,137 +686,27 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "content/preferences.xul",
-					"settings":
-					{
-						"buffer_size": 5217,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1343,
-								1343
-							]
-						],
-						"settings":
-						{
-							"auto_name": "<prefwindow id=\"appPreferences\"",
-							"syntax": "Packages/XML/XML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "locale/en-US/options.dtd",
-					"settings":
-					{
-						"buffer_size": 127,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								29,
-								29
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
-					"buffer": 8,
-					"file": "content/filters.xul",
-					"settings":
-					{
-						"buffer_size": 2647,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								726,
-								869
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/XML/XML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 15.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "content/settings.xul",
-					"settings":
-					{
-						"buffer_size": 6880,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								626,
-								626
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/XML/XML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 540.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
+					"buffer": 7,
 					"file": "content/PocketChange.js",
 					"settings":
 					{
-						"buffer_size": 8804,
+						"buffer_size": 9011,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3357,
-								3357
+								3295,
+								3295
 							]
 						],
 						"settings":
@@ -818,25 +715,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1660.0,
+						"translation.y": 1330.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 8,
 					"file": "defaults/preferences/pocketchange.js",
 					"settings":
 					{
-						"buffer_size": 143,
+						"buffer_size": 191,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								141,
-								141
+								188,
+								188
 							]
 						],
 						"settings":
