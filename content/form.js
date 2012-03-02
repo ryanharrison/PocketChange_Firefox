@@ -98,8 +98,7 @@ PocketChangeChrome.FormOverlay = {
 
 		// Update PocketChange.ProjectsController with new project
 		PocketChange.ProjectsController.selectedProject(PocketChange.ProjectsController.getProjectById(newProjectId));
-
-		//PocketChange.Helper.dump(PocketChange.ProjectsController.selectedProject().shortDescription);
+		
 
 		// Update form
 		PocketChangeChrome.FormOverlay.updateSubject();
@@ -109,7 +108,7 @@ PocketChangeChrome.FormOverlay = {
 		PocketChangeChrome.FormOverlay.updateProgress();
 		PocketChangeChrome.FormOverlay.updateProgressMeter();
 		
-		// updateDescription is causing an error
+		// updateDescription is occasionally causing an error, come back to this
 		PocketChangeChrome.FormOverlay.updateDescription();
 		PocketChangeChrome.FormOverlay.updateLink();
 	},

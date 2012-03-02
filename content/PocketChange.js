@@ -106,7 +106,7 @@ PocketChange.Settings = {
 
 PocketChange.ButtonController = {
 	mainButtonClick : function() {		
-		
+		// This is fired when any part of the toolbar button is clicked
 	},	
 	enable : function() {
 		if (PocketChange.Helper.isEnabled()) {
@@ -145,8 +145,8 @@ PocketChange.ButtonController = {
 			jQuery("#pocketchange-button").css("list-style-image","url('"+disabledURL+"'");
 		}
 	},
-	pageClick : function(option) {
-		if (option == "filters") {
+	pageClick : function(option) {		
+		if (option == "filters") {			
 			PocketChange.Helper.openTab("chrome://pocketchange/content/filters.xul");
 		} else if (option == "donation-form") {
 			PocketChange.Helper.openTab("chrome://pocketchange/content/form.xul");
@@ -416,10 +416,7 @@ PocketChange.SearchFilters = {
 	}
 }
 
-PocketChange.Helper = {
-	init : function() {		
-		
-	},
+PocketChange.Helper = {	
 	isEnabled : function() {
 		var pref;
 		pref = PocketChange.Prefs.get("enabled", "boolean");

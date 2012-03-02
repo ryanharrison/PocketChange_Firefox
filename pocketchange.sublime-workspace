@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"subject",
+				"subjectPref"
+			],
+			[
 				"update",
 				"updateImage"
 			],
@@ -223,7 +227,7 @@
 			"file": "content/form.js",
 			"settings":
 			{
-				"buffer_size": 8526,
+				"buffer_size": 8476,
 				"line_ending": "Unix"
 			}
 		},
@@ -247,7 +251,7 @@
 			"file": "content/PocketChange.js",
 			"settings":
 			{
-				"buffer_size": 9011,
+				"buffer_size": 11469,
 				"line_ending": "Unix"
 			}
 		},
@@ -255,7 +259,7 @@
 			"file": "defaults/preferences/pocketchange.js",
 			"settings":
 			{
-				"buffer_size": 191,
+				"buffer_size": 192,
 				"line_ending": "Windows"
 			}
 		}
@@ -389,7 +393,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 90.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"C:\\School\\INFO 490\\dev\\extension\\PocketChange_Firefox"
@@ -400,6 +404,16 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Prefs.get",
+			"changeProject",
+			"updateSubject",
+			"PocketChange.Prefs.get",
+			"isEna",
+			"isEn",
+			"hasP",
+			"Prefs.get",
+			"each",
+			"catch",
 			"preferences.xul",
 			".FileAccess",
 			"FileAc",
@@ -494,7 +508,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -562,8 +576,8 @@
 						"selection":
 						[
 							[
-								1498,
-								1627
+								822,
+								822
 							]
 						],
 						"settings":
@@ -610,15 +624,15 @@
 					"file": "content/form.js",
 					"settings":
 					{
-						"buffer_size": 8526,
+						"buffer_size": 8476,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1128,
-								1128
+								1801,
+								1801
 							]
 						],
 						"settings":
@@ -627,7 +641,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 160.0,
+						"translation.y": 3317.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -644,8 +658,8 @@
 						"selection":
 						[
 							[
-								4333,
-								4344
+								563,
+								563
 							]
 						],
 						"settings":
@@ -655,7 +669,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1485.0,
+						"translation.y": 255.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -672,8 +686,8 @@
 						"selection":
 						[
 							[
-								238,
-								242
+								1115,
+								1117
 							]
 						],
 						"settings":
@@ -698,15 +712,15 @@
 					"file": "content/PocketChange.js",
 					"settings":
 					{
-						"buffer_size": 9011,
+						"buffer_size": 11469,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3295,
-								3295
+								5807,
+								5807
 							]
 						],
 						"settings":
@@ -715,7 +729,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1330.0,
+						"translation.y": 6070.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -725,15 +739,15 @@
 					"file": "defaults/preferences/pocketchange.js",
 					"settings":
 					{
-						"buffer_size": 191,
+						"buffer_size": 192,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								188,
-								188
+								142,
+								142
 							]
 						],
 						"settings":
