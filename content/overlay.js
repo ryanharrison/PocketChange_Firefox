@@ -1,6 +1,3 @@
-// is this necessary? i don't think so
-
-
 /**
  * PocketChangeChrome namespace.
  */

@@ -14,7 +14,6 @@ if ("undefined" == typeof(PocketChange)) {
 PocketChange.Prefs = {	
 	get : function(prefKey, type) {
 		var pcPrefs, data;
-		
 		// Instantiate the wrapper
 		pcPrefs = new PrefsWrapper1("extensions.pocketchange.");
 
@@ -146,9 +145,7 @@ PocketChange.ButtonController = {
 		}
 	},
 	pageClick : function(option) {		
-		if (option == "donation-form") {
-			PocketChange.Helper.openTab("chrome://pocketchange/content/form.xul");
-		} else if (option == "dashboard") {
+		if (option == "dashboard") {
 			PocketChange.Helper.openTab("chrome://pocketchange/content/dashboard.xul");
 		} else if (option == "analytics") {
 			PocketChange.Helper.openTab("chrome://pocketchange/content/analytics.xul");
@@ -212,9 +209,7 @@ PocketChange.FormController = {
 	},
 	apiData : function() {
 		var data, zipPref, subjectPref, povertyPref, subject, toString;
-		data = {};
-
-		PocketChange.Helper.dump("BEGIN APIDATA...");
+		data = {};		
 
 		// Get prefs
 		zipPref = PocketChange.Prefs.get("zipCode", "string");
@@ -416,6 +411,72 @@ PocketChange.SearchFilters = {
 			PocketChange.Prefs.set("subjectKey", newSubject.key, "string");
 			PocketChange.Prefs.set("subjectVal", newSubject.val, "string");
 			PocketChange.Prefs.set("subjectName", newSubject.name, "string");	
+		}
+	}
+}
+
+PocketChange.Account = {
+	// Temporary info
+	_hostname : "http://www.pocketchange.me/",
+	_formSubmitURL : "http://www.pocketchange.me/foobar",
+	_httprealm : null,
+	_usernameField : "email",
+	_passwordField : "pass",
+	
+	storeLogin : function(email, pass) {
+		var nsLoginInfo, newLoginInfo, oldLoginInfo, loginManager, lastPass;
+
+		loginManager = Components.classes["@mozilla.org/login-manager;1"].  
+	                                getService(Components.interfaces.nsILoginManager);                                 
+		nsLoginInfo = new Components.Constructor("@mozilla.org/login-manager/loginInfo;1",  
+												Components.interfaces.nsILoginInfo,  
+												"init"); 
+		newLoginInfo = new nsLoginInfo(this._hostname, this._formSubmitURL, this._httprealm, email, pass,  
+									this._usernameField, this._passwordField);
+
+		lastPass = PocketChange.Account.getPass();
+
+
+		if (lastPass.length > 0) {
+			// Replace old login with new one
+			oldLoginInfo = new nsLoginInfo(this._hostname, this._formSubmitURL, this._httprealm, email, lastPass,  
+										this._usernameField, this._passwordField);
+			loginManager.modifyLogin(oldLoginInfo, newLoginInfo)
+
+		} else {
+			// No login found, add new one
+			loginManager.addLogin(newLoginInfo);
+		}
+	},
+
+	getPass : function() {
+		var nsLoginInfo, loginInfo, loginManager, logins, usernameData, username;		
+		loginManager = Components.classes["@mozilla.org/login-manager;1"].getService(Components.interfaces.nsILoginManager);
+
+		// Set username to email address
+		usernameData = PocketChange.Prefs.get("email","string");
+
+		// Check if email address is stored
+		if (usernameData.hasPref) {
+
+			username = usernameData.pref;
+
+			// Find users for the given parameters
+			logins = loginManager.findLogins({}, this._hostname, this._formSubmitURL, this._httprealm);
+
+			// Find user from returned array of nsILoginInfo objects  
+			for (var i = 0; i < logins.length; i++) {
+				if (logins[i].username == username) {
+					return logins[i].password;
+				}
+			}
+			
+			// No saved password found for given email
+			return "";
+		} else {
+			// No saved password found
+			PocketChange.Helper.dump("no pass found");
+			return "";
 		}
 	}
 }

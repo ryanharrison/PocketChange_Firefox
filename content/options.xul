@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>   
-
-<prefwindow xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" title="PocketChange Options">
+<prefwindow xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" onbeforeaccept="PocketChangeChrome.OptionsOverlay.storeLogin()" title="PocketChange Options">
+  
   
   <prefpane id="general-pane" label="General"  image="chrome://pocketchange/content/images/icon_general.png">
     <preferences>
@@ -65,8 +65,7 @@
       <label value="Password" control="password" />
       <textbox 
         id="password" 
-        type="password"
-        preference="password-pref"
+        type="password"        
         emptytext="Password"
       />
 
@@ -144,7 +143,7 @@
         <!-- SUBJECT -->
         <vbox>
           <label value="Subjects" control="subject-list" />
-          <menulist id="subject-list" preference="subject-pref" oncommand="PocketChangeChrome.Filters.updateSubject()">
+          <menulist id="subject-list" preference="subject-pref">
             <menupopup>           
               <menuitem subKey="all" subVal="all" value="all" class="subject" label="All Subjects" />
               <menuitem subKey="subject1" subVal="-1" value="subject1=-1" class="subject" label="Music &amp; The Arts" />
@@ -170,4 +169,9 @@
 
   </prefpane>
   
+
+  <script type="application/javascript" src="chrome://pocketchange/content/jquery-1.7.1.js"/>
+  <script type="application/javascript" src="chrome://pocketchange/content/prefutils.js"/>
+  <script type="application/javascript" src="chrome://pocketchange/content/PocketChange.js"/>
+  <script type="application/javascript" src="chrome://pocketchange/content/options.js"/>
 </prefwindow>

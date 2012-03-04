@@ -24,8 +24,7 @@
 				<menuitem oncommand="PocketChange.ButtonController.pageClick('dashboard');" label="Dashboard"/>
 				<menuitem oncommand="PocketChange.ButtonController.pageClick('analytics');" label="Analytics"/>
 				<menuitem oncommand="PocketChange.ButtonController.pageClick('badges');" label="Badges"/>
-				<menuitem oncommand="PocketChange.ButtonController.pageClick('options');" label="Settings"/>
-				<menuitem oncommand="PocketChange.ButtonController.pageClick('donation-form');" label="Donation Form"/>
+				<menuitem oncommand="PocketChange.ButtonController.pageClick('options');" label="Settings"/>				
 			</menupopup>
 
 	  	</toolbarbutton>
