@@ -15,8 +15,7 @@ if ("undefined" == typeof(PocketChangeChrome)) {
 PocketChangeChrome.BrowserOverlay = {
   
   init : function(e) {    
-    jQuery.noConflict();
-    PocketChange.Helper.init();
+    jQuery.noConflict();    
 
     // Check the "Enabled" menuitem if applicable
     PocketChange.ButtonController.updateEnableCheck();
