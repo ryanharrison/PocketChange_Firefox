@@ -117,7 +117,8 @@ PocketChangeChrome.FormOverlay = {
 		var $description, descriptionText;
 		$description = jQuery("<description>").attr({
 			id : 'project-description',			
-			width : PocketChange.FormController.width() + "px"
+			width : PocketChange.FormController.width()/2 + "px",
+			class : 'project-description'
 		});
 
 		descriptionText = PocketChange.ProjectsController.selectedProject().shortDescription;
@@ -134,7 +135,8 @@ PocketChangeChrome.FormOverlay = {
 		var $progress, totalCost, costToComplete, raised, progressText;
 		$progress = jQuery("<description>").attr({
 			id : 'project-progress',			
-			width : PocketChange.FormController.width() + "px"
+			width : PocketChange.FormController.width()/2 + "px",
+			class : 'project-progress'
 		});		
 
 		totalCost = parseFloat(PocketChange.ProjectsController.selectedProject().totalPrice).toFixed(2);
@@ -162,9 +164,10 @@ PocketChangeChrome.FormOverlay = {
 
 		$progressMeter = jQuery("<progressmeter>").attr({
 			id : 'project-progress-meter',
-			width : PocketChange.FormController.width() + "px",
+			width : PocketChange.FormController.width()/2 + "px",
 			mode : "determined",
-			value : progress + ""
+			value : progress + "",
+			class : 'project-progressMeter'
 		});
 
 		// Remove any previous progress meters		
@@ -177,7 +180,8 @@ PocketChangeChrome.FormOverlay = {
 		var $school, schoolName, schoolText;
 		$school = jQuery("<description>").attr({
 			id : 'project-school',			
-			width : PocketChange.FormController.width() + "px"
+			width : PocketChange.FormController.width()/2 + "px",
+			class : 'project-school'
 		});
 
 		if ( "undefined" == typeof(PocketChange.ProjectsController.selectedProject().schoolName) ) {
@@ -200,7 +204,8 @@ PocketChangeChrome.FormOverlay = {
 		var $subject, subjectName, subjectText;
 		$subject = jQuery("<description>").attr({
 			id : 'project-subject',
-			width : PocketChange.FormController.width() + "px"
+			width : PocketChange.FormController.width()/2 + "px",
+			class : 'project-subject'
 		});
 		
 		subjectName = PocketChange.ProjectsController.selectedProject().subject.name;
@@ -219,7 +224,8 @@ PocketChangeChrome.FormOverlay = {
 		var $poverty, povertyLevel, povertyText;
 		$poverty = jQuery("<description>").attr({
 			id : 'project-poverty',
-			width : PocketChange.FormController.width() + "px"
+			width : PocketChange.FormController.width()/2 + "px",
+			class : 'project-poverty'
 		});
 		
 		povertyLevel = PocketChange.ProjectsController.selectedProject().povertyLevel;
@@ -238,7 +244,8 @@ PocketChangeChrome.FormOverlay = {
 		var $resource, resourceType, resourceText;
 		$resource = jQuery("<description>").attr({
 			id : 'project-resource',
-			width : PocketChange.FormController.width() + "px"
+			width : PocketChange.FormController.width()/2 + "px",
+			class : 'project-resource'
 		});
 		
 		resourceType = PocketChange.ProjectsController.selectedProject().resource.name;
@@ -260,11 +267,11 @@ PocketChangeChrome.FormOverlay = {
 
 		$link = jQuery("<label>").attr({
 			id : 'project-link',			
-			width : PocketChange.FormController.width() + "px",
+			width : PocketChange.FormController.width()/2 + "px",
 			class : 'text-link',
 			href : proposalLink,
 			target : "_parent",
-			value : 'View Project'
+			value : 'More...'
 		});
 
 		// Remove any previous subject text

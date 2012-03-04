@@ -9,32 +9,55 @@
 	<script type="application/javascript" src="chrome://pocketchange/content/PocketChange.js"/>
 	<script type="application/javascript;version=1.7" src="form.js"/> 
 
-<vbox id="form-vbox">
+	<hbox id="form-vbox">
 
-	<label value="Order Amount" control="order-amount" />
-	<textbox id="order-amount" value="$17.02" />
+		<vbox id="project-info-container">
+			<hbox id="project-title-container" pack="center" maxwidth="300px"></hbox>
+			<hbox id="subject-container"></hbox>
+			<spacer id="project-spacer" />
+			<hbox id="school-container"></hbox>
+			<spacer id="project-spacer" />
+			<hbox id="poverty-container"></hbox>
+			<spacer id="project-spacer" />
+			<hbox id="resource-container"></hbox>
+			<spacer id="project-spacer" />
+			<hbox id="progress-container"></hbox>
+			<hbox id="progress-meter-container"></hbox>
+			<spacer id="project-spacer" style="max-width:300px; height:10px; border-bottom:1px solid #A2B89E;"/>
+			<hbox id="description-container"></hbox>
+			<hbox id="link-container"></hbox>
+		</vbox>
+		
+		<spacer style="width: 50px"/>
+		
+		<vbox id="donation-amount-container">
+			<label value="Order Amount" control="order-amount" />
+			<textbox id="order-amount" value="$17.02" />
 
-	<label value="Donation Rate" control="donation-rate" />
-	<textbox id="donation-rate" value="10%" />
+			<spacer style="height: 10px"/>
+			
+			<label value="Donation Rate" control="donation-rate" />
+			<hbox>
+				<textbox id="donation-rate" value="10%" />
+				<label value="%" style="font-size: 20px;"/>
+			</hbox>
+			
+			<spacer style="height: 10px"/>
 
-	<label value="Donation Amount" control="donation-amount" />
-	<textbox id="donation-amount" value="$1.70" />
+			<label value="Total Donation Amount" control="donation-amount" />
+			<textbox id="donation-amount" value="$1.70" />
+			
+			<spacer style="height: 20px"/>
 
-	<button label="Donate" oncommand="alert('You donated!');"/>
-	
-	<vbox id="project-info-container">
-		<hbox id="project-title-container"></hbox>
-		<hbox id="subject-container"></hbox>
-		<hbox id="school-container"></hbox>
-		<hbox id="poverty-container"></hbox>
-		<hbox id="resource-container"></hbox>
-		<hbox id="progress-container"></hbox>
-		<hbox id="progress-meter-container"></hbox>
-		<hbox id="description-container"></hbox>
-		<hbox id="link-container"></hbox>
-	</vbox>
+			<button label="Donate" oncommand="alert('You donated!');"/>
+			
+			<spacer style="height: 30px"/>			
+			
+			<image src="chrome://pocketchange/content/images/logo.png" height="55"/>
+		</vbox>
+		
 
-</vbox>
+	</hbox>
 
 
 </overlay>

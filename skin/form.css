@@ -1,5 +1,84 @@
 #pocketchange-form{
+	background-color:white;
+}
+
+#form-vbox{
+	width:600px;
+}
+
+#project-info-container{
+	border-right:1px solid black;
+	margin:5px;
+	padding-top:10px;
+}
+
+#project-title-container menulist{
+	color:#216D01;
 	background-color:grey;
-	height:600px;
-	width:300px;
+	/*text-align:center;*/
+	max-width:300px;
+}
+
+.project-subject{
+	padding:5px;
+}
+
+.project-school{
+	padding:5px;
+}
+
+.project-poverty{
+	padding:5px;
+}
+
+.project-resource{
+	padding:5px;
+}
+
+.project-progress{
+	color:black;
+	padding:5px;
+}
+
+.project-progressMeter{
+
+}
+
+.project-description{
+	color:black;
+}
+
+.text-link{
+	cursor:pointer;
+	color:#216D01;
+	text-decoration:underline;
+}
+
+#donation-amount-container{
+	max-width:50%;
+	text-align: right;
+	padding-top:20px;
+}
+
+#project-spacer{
+	max-width:150px;
+	height:1px;
+	border-bottom:1px solid #A2B89E;
+}
+
+label{
+	font-weight:bold;
+}
+
+textbox{
+	-moz-appearance:none;
+	background-color:white;
+	color:black;
+	border:1px solid grey;
+}
+
+button{
+	-moz-appearance:none;
+	background-color:#CEDCC8;
+	color:#216D01;
 }

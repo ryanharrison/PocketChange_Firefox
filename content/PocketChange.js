@@ -146,10 +146,14 @@ PocketChange.ButtonController = {
 		}
 	},
 	pageClick : function(option) {		
-		if (option == "filters") {			
-			PocketChange.Helper.openTab("chrome://pocketchange/content/filters.xul");
-		} else if (option == "donation-form") {
+		if (option == "donation-form") {
 			PocketChange.Helper.openTab("chrome://pocketchange/content/form.xul");
+		} else if (option == "dashboard") {
+			PocketChange.Helper.openTab("chrome://pocketchange/content/dashboard.xul");
+		} else if (option == "analytics") {
+			PocketChange.Helper.openTab("chrome://pocketchange/content/analytics.xul");
+		} else if (option == "badges") {
+			PocketChange.Helper.openTab("chrome://pocketchange/content/badges.xul");
 		} else if (option == "options") {
 			var features = "chrome,titlebar,toolbar,centerscreen,modal";
 			var url = "chrome://pocketchange/content/options.xul";
@@ -159,7 +163,7 @@ PocketChange.ButtonController = {
 }
 
 PocketChange.FormController = {
-	_formWidth : 300,	// Width in pixels
+	_formWidth : 600,	// Width in pixels
 	_formHeader : 'PocketChange',	
 	_APIKEY : "DONORSCHOOSE",	
 

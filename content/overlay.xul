@@ -20,10 +20,12 @@
 		type="menu-button" 
 		oncommand="PocketChange.ButtonController.mainButtonClick()" >
 			<menupopup>
-				<menuitem oncommand="PocketChange.ButtonController.enable();" type="checkbox" autocheck="true" label="Enabled" id="enabled-checkbox"/>
-				<menuitem oncommand="PocketChange.ButtonController.pageClick('filters');" label="Filters"/>
-				<menuitem oncommand="PocketChange.ButtonController.pageClick('donation-form');" label="Donation Form"/>
+				<menuitem oncommand="PocketChange.ButtonController.enable();" type="checkbox" autocheck="true" label="Enabled" id="enabled-checkbox"/>				
+				<menuitem oncommand="PocketChange.ButtonController.pageClick('dashboard');" label="Dashboard"/>
+				<menuitem oncommand="PocketChange.ButtonController.pageClick('analytics');" label="Analytics"/>
+				<menuitem oncommand="PocketChange.ButtonController.pageClick('badges');" label="Badges"/>
 				<menuitem oncommand="PocketChange.ButtonController.pageClick('options');" label="Settings"/>
+				<menuitem oncommand="PocketChange.ButtonController.pageClick('donation-form');" label="Donation Form"/>
 			</menupopup>
 
 	  	</toolbarbutton>
