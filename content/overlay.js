@@ -19,8 +19,7 @@ PocketChangeChrome.BrowserOverlay = {
     // Display the enabled/disabled button image
     PocketChange.ButtonController.updateImage();
 
-    // Add click handlers
-    //PocketChangeChrome.BrowserOverlay.scanPages(e);
+    // Add click handlers    
     window.addEventListener("DOMContentLoaded", function(e) { 
       PocketChangeChrome.BrowserOverlay.scanPages(e); 
     }, false);
@@ -52,7 +51,6 @@ PocketChangeChrome.BrowserOverlay = {
   
     // Check each tab of this browser instance  
     numTabs = tabbrowser.browsers.length;
-PocketChange.Helper.dump("numTabs: " + numTabs);    // REMOVE
     
     for (var index = 0; index < numTabs; index++) {
       var currentBrowser;
@@ -69,8 +67,6 @@ PocketChange.Helper.dump("numTabs: " + numTabs);    // REMOVE
   },
 
   addClickHandler : function(currentBrowser) {
-    PocketChange.Helper.dump("adding handler to: " + currentBrowser.currentURI.spec);
-
 
     jQuery(window.content.document).mousedown(function(e){
       // Check if the Place Order button was clicked
@@ -83,18 +79,9 @@ PocketChange.Helper.dump("numTabs: " + numTabs);    // REMOVE
         PocketChange.FormController.orderAmount(orderAmt);
         // Open donation form
         PocketChangeChrome.BrowserOverlay.openForm();
-        //PocketChange.Helper.dump("open the donation form");
-
       }
 
     });
-      
-      // var orderBtn = jQuery(window.content.document).contents().find("input.s_place-order-primary");
-      // var price = jQuery(window.content.document).contents().find("em.price").text();
-      // orderBtn.mousedown(function(){
-      //   PocketChange.Helper.dump("orderAmount: " + price);
-      // });
-
 
   },
 
@@ -113,25 +100,7 @@ PocketChange.Helper.dump("numTabs: " + numTabs);    // REMOVE
       ,"chrome,width="+formWidth+",height=600"
     );
   }
-
-  // handleClicks : function(e) {
-  //   var cURI, win, localOrderAmount;
-  //   cURI = gBrowser.mCurrentBrowser.currentURI.spec;    
-   
-  //   if (PocketChange.Helper.isAmazon(cURI)) {  
-  //     win = window.content;
-  //     localOrderAmount = jQuery(win.document).contents().find("em.price").text();
-  //     //localOrderAmount = parseFloat(localOrderAmount);
-
-  //     PocketChange.FormController.orderAmount(localOrderAmount);
-
-  //     //PocketChangeChrome.BrowserOverlay.openForm();
-  //   }
-    
-  // },
-
   
 };
 
 window.addEventListener("load", function(e) { PocketChangeChrome.BrowserOverlay.init(e); }, false);
-//window.addEventListener("DOMContentLoaded", function(e) { PocketChangeChrome.BrowserOverlay.scanPages(e); }, false);
