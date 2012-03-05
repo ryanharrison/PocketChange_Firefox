@@ -5,21 +5,55 @@ if ("undefined" == typeof(PocketChangeChrome)) {
 PocketChangeChrome.FormOverlay = {
 	init : function(e) {		
 
-		PocketChangeChrome.FormOverlay.fillForm();
+		PocketChangeChrome.FormOverlay.fillForm();		
 	},
 
 	fillForm : function() {
+		var orderAmt, donationRate, donationAmt;
+		
+		// Get amounts
+		orderAmt = PocketChange.FormController.orderAmount();
+		donationRate = PocketChange.Settings.donationRate();
+		
 		// Set order amount
-		jQuery("#order-amount").val(
-			PocketChange.FormController.orderAmount()
-		);
-
+		jQuery("#order-amount").val(orderAmt);
 		// Set donation rate
-		jQuery("#donation-rate").val(
-			PocketChange.Settings.donationRate()
-		);
+		jQuery("#donation-rate").val(donationRate);
 
+		// Remove $ from order amount
+		orderAmt = orderAmt.replace("$","");
+		// Convert to float
+		orderAmt = parseFloat(orderAmt);
+		// Get donation amount
+		donationAmt = PocketChange.FormController.calculateDonation(orderAmt,donationRate);
+		// Add $
+		donationAmt = "$" + donationAmt;
+
+		// Set donation amount
+		jQuery("#donation-amount").val(donationAmt);
+
+		// Make API call to DonorsChoose
 		PocketChangeChrome.FormOverlay.getProjects();
+	},
+
+	updateDonationAmt : function() {		
+		var orderAmt, donationRate, donationAmt;
+		
+		// Get amounts
+		orderAmt = jQuery("#order-amount").val();
+		donationRate = jQuery("#donation-rate").val();
+
+		// Remove $ from order amount
+		orderAmt = orderAmt.replace("$","");
+		// Convert to float
+		orderAmt = parseFloat(orderAmt);
+		// Get donation amount
+		donationAmt = PocketChange.FormController.calculateDonation(orderAmt,donationRate);
+		// Add $
+		donationAmt = "$" + donationAmt;
+		
+		// Set donation amount
+		jQuery("#donation-amount").val(donationAmt);
 	},
 
 	getProjects : function() {	

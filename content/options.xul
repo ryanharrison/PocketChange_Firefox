@@ -3,7 +3,7 @@
 <prefwindow xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" onbeforeaccept="PocketChangeChrome.OptionsOverlay.storeLogin()" title="PocketChange Options">
   
   
-  <prefpane id="general-pane" label="General"  image="chrome://pocketchange/content/images/icon_general.png">
+  <prefpane id="general-pane" label="Account"  image="chrome://pocketchange/content/images/icon_general.png">
     <preferences>
       <preference 
         id="fname-pref" 

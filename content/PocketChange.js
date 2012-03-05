@@ -113,11 +113,12 @@ PocketChange.ButtonController = {
 			PocketChange.Prefs.set("enabled", false, "boolean");			
 		} else {
 			// Enable
-			PocketChange.Prefs.set("enabled", true, "boolean");			
+			PocketChange.Prefs.set("enabled", true, "boolean");
 		}
-
-		PocketChange.ButtonController.updateEnableCheck();
-		PocketChange.ButtonController.updateImage();
+		
+		PocketChangeChrome.BrowserOverlay.init();
+		//PocketChange.ButtonController.updateEnableCheck();
+		//PocketChange.ButtonController.updateImage();
 	},
 	updateEnableCheck : function() {
 		if (PocketChange.Helper.isEnabled()) {
@@ -192,7 +193,10 @@ PocketChange.FormController = {
 		} else {			
 			PocketChange.Prefs.set("orderAmt", newOrderAmount, "string");
 		}
-	},	
+	},
+	calculateDonation : function(orderAmt, donationRate) {		
+		return ( (donationRate/100) * orderAmt ).toFixed(2);		
+	},
 	apiKey : function() {		
 		return this._APIKEY;
 	},
@@ -480,7 +484,7 @@ PocketChange.Account = {
 	}
 }
 
-PocketChange.Helper = {		
+PocketChange.Helper = {	
 	isEnabled : function() {
 		var pref;
 		pref = PocketChange.Prefs.get("enabled", "boolean");

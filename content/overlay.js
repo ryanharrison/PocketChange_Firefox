@@ -19,10 +19,13 @@ PocketChangeChrome.BrowserOverlay = {
     // Display the enabled/disabled button image
     PocketChange.ButtonController.updateImage();
 
-    // Add click handlers    
-    window.addEventListener("DOMContentLoaded", function(e) { 
-      PocketChangeChrome.BrowserOverlay.scanPages(e); 
-    }, false);
+    // Check if enabled
+    if (PocketChange.Helper.isEnabled()) {
+      // Add click handlers
+      window.addEventListener("DOMContentLoaded", function(e) { 
+        PocketChangeChrome.BrowserOverlay.scanPages(e); 
+      }, false);
+    }
 
     // // Attach handler to double clicks to open form
     // jQuery(window).dblclick(function(){
@@ -92,15 +95,17 @@ PocketChangeChrome.BrowserOverlay = {
   },
 
   openForm : function() {
-    var formWidth;
-    formWidth = PocketChange.FormController.width();
-    window.open(
-      "chrome://pocketchange/content/form.xul"
-      ,"pcForm"
-      ,"chrome,width="+formWidth+",height=600"
-    );
+    // Check if PocketChange is enabled
+    if (PocketChange.Helper.isEnabled()) {
+      var formWidth;
+      formWidth = PocketChange.FormController.width();
+      window.open(
+        "chrome://pocketchange/content/form.xul"
+        ,"pcForm"
+        ,"chrome,width="+formWidth+",height=600"
+      );
+    }
   }
-  
 };
 
 window.addEventListener("load", function(e) { PocketChangeChrome.BrowserOverlay.init(e); }, false);

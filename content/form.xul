@@ -31,21 +31,21 @@
 		<spacer style="width: 50px"/>
 		
 		<vbox id="donation-amount-container">
-			<label value="Order Amount" control="order-amount" />
-			<textbox id="order-amount" value="$17.02" />
+			<label value="Order Amount" control="order-amount"/>
+			<textbox id="order-amount"/>
 
 			<spacer style="height: 10px"/>
 			
-			<label value="Donation Rate" control="donation-rate" />
-			<hbox>
-				<textbox id="donation-rate" value="10%" />
+			<label value="Donation Rate" control="donation-rate"/>
+			<hbox>				
+				<textbox id="donation-rate" type="number" onchange="PocketChangeChrome.FormOverlay.updateDonationAmt()" min="1"/>
 				<label value="%" style="font-size: 20px;"/>
 			</hbox>
 			
 			<spacer style="height: 10px"/>
 
-			<label value="Total Donation Amount" control="donation-amount" />
-			<textbox id="donation-amount" value="$1.70" />
+			<label value="Total Donation Amount" control="donation-amount"/>
+			<textbox id="donation-amount"/>
 			
 			<spacer style="height: 20px"/>
 
