@@ -266,8 +266,7 @@ PocketChange.FormController = {
 		data.toString = function() {
 			return toString;
 		}
-
-		PocketChange.Helper.dump(data.toString());
+		
 		return data;
 	}
 
@@ -481,7 +480,7 @@ PocketChange.Account = {
 	}
 }
 
-PocketChange.Helper = {	
+PocketChange.Helper = {		
 	isEnabled : function() {
 		var pref;
 		pref = PocketChange.Prefs.get("enabled", "boolean");
@@ -515,7 +514,44 @@ PocketChange.Helper = {
 		
 		return (t1 && t2);
 	},
-	dump : function(data) {		
+	isOrderButton : function(e) {
+		var expectedName = "placeYourOrder";		
+		return (e.target.name == expectedName);
+	},
+	isFormOpen : function() {  
+	    var tabs, wm, browserEnumerator, foundForm;
+	    tabs = gBrowser.tabs;
+
+	    wm = Components.classes["@mozilla.org/appshell/window-mediator;1"]  
+	                     .getService(Components.interfaces.nsIWindowMediator);  
+	    browserEnumerator = wm.getEnumerator("navigator:browser");  
+	  
+	  	foundForm = false;
+		// Check each browser instance for donation form
+		while (browserEnumerator.hasMoreElements()) {  
+			var browserWin, tabbrowser, numTabs;
+
+			browserWin = browserEnumerator.getNext();  
+			tabbrowser = browserWin.gBrowser;  
+
+			// Check each tab of this browser instance  
+			numTabs = tabbrowser.browsers.length;
+
+			for (var index = 0; index < numTabs; index++) {
+				var currentBrowser;
+
+				currentBrowser = tabbrowser.getBrowserAtIndex(index);
+				// This should be changed to
+				if (currentBrowser.contentTitle == "PocketChange: Donate") {
+					//PocketChange.Helper.dump(currentBrowser.currentURI.spec);					
+					foundForm = true;
+				}
+			}
+		}
+
+		return foundForm;
+	},
+	dump : function(data) {
 		dump(data + "\n");
 	}
 }
