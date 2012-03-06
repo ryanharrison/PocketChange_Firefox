@@ -4,6 +4,62 @@
 		"selected_items":
 		[
 			[
+				"donation",
+				"donationAmt"
+			],
+			[
+				"Pocket",
+				"PocketChange"
+			],
+			[
+				"orderA",
+				"orderAmt"
+			],
+			[
+				"found",
+				"foundForm"
+			],
+			[
+				"brow",
+				"browserEnumerator"
+			],
+			[
+				"curre",
+				"currentBrowser"
+			],
+			[
+				"logi",
+				"loginManager"
+			],
+			[
+				"get",
+				"getPass"
+			],
+			[
+				"usern",
+				"usernameData"
+			],
+			[
+				"Pock",
+				"PocketChange"
+			],
+			[
+				"emai",
+				"emailField"
+			],
+			[
+				"htt",
+				"httprealm"
+			],
+			[
+				"pass",
+				"passwordField"
+			],
+			[
+				"pas",
+				"password"
+			],
+			[
 				"subject",
 				"subjectPref"
 			],
@@ -34,10 +90,6 @@
 			[
 				"pref",
 				"prefKey"
-			],
-			[
-				"donation",
-				"donationRate"
 			],
 			[
 				"chec",
@@ -160,20 +212,12 @@
 				"FormController"
 			],
 			[
-				"Pocket",
-				"PocketChange"
-			],
-			[
 				"selected",
 				"selectedProject"
 			],
 			[
 				"P",
 				"ProjectsController"
-			],
-			[
-				"Pock",
-				"PocketChange"
 			],
 			[
 				"Pocke",
@@ -203,7 +247,7 @@
 			"file": "content/overlay.xul",
 			"settings":
 			{
-				"buffer_size": 1745,
+				"buffer_size": 1843,
 				"line_ending": "Unix"
 			}
 		},
@@ -211,23 +255,7 @@
 			"file": "content/overlay.js",
 			"settings":
 			{
-				"buffer_size": 1738,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "content/form.xul",
-			"settings":
-			{
-				"buffer_size": 1537,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "content/form.js",
-			"settings":
-			{
-				"buffer_size": 8476,
+				"buffer_size": 3203,
 				"line_ending": "Unix"
 			}
 		},
@@ -235,8 +263,32 @@
 			"file": "content/options.xul",
 			"settings":
 			{
-				"buffer_size": 5301,
+				"buffer_size": 5654,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "content/options.js",
+			"settings":
+			{
+				"buffer_size": 822,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "content/form.xul",
+			"settings":
+			{
+				"buffer_size": 2312,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "content/form.js",
+			"settings":
+			{
+				"buffer_size": 9703,
+				"line_ending": "Unix"
 			}
 		},
 		{
@@ -248,10 +300,18 @@
 			}
 		},
 		{
+			"file": "skin/form.css",
+			"settings":
+			{
+				"buffer_size": 995,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "content/PocketChange.js",
 			"settings":
 			{
-				"buffer_size": 11469,
+				"buffer_size": 15023,
 				"line_ending": "Unix"
 			}
 		},
@@ -288,6 +348,11 @@
 	},
 	"file_history":
 	[
+		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/content/form.xul",
+		"/C/Users/RyanHarrison/Dropbox/Capstone/temp transfer/PocketChange.js",
+		"/C/Users/RyanHarrison/Dropbox/Capstone/temp transfer/form.js",
+		"/C/Users/RyanHarrison/Dropbox/Capstone/temp transfer/form.xul",
+		"/Z/xmt/js/magic_messageparam_replacer.js",
 		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/content/filters.xul",
 		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/content/settings.xul",
 		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/content/preferences.xul",
@@ -317,7 +382,6 @@
 		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/content/overlay.xul",
 		"/C/School/INFO 490/dev/debug/debug.js",
 		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/chrome.manifest",
-		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/content/form.xul",
 		"/C/School/INFO 490/dev/extension/PocketChange_Firefox/content/form.js",
 		"/Z/release_manager/js/checklist.js",
 		"/Z/xmt/js/translate.js",
@@ -404,6 +468,19 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"enable",
+			"PocketChange.FormController.orderAmount()",
+			"textbox",
+			"donationRat",
+			"handleC",
+			".dump",
+			"remove",
+			"password",
+			"Prefs.get",
+			"PocketChange.Prefs.get",
+			"email",
+			"oncommand",
+			"init",
 			"Prefs.get",
 			"changeProject",
 			"updateSubject",
@@ -508,7 +585,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -542,15 +619,15 @@
 					"file": "content/overlay.xul",
 					"settings":
 					{
-						"buffer_size": 1745,
+						"buffer_size": 1843,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1668,
-								1668
+								633,
+								545
 							]
 						],
 						"settings":
@@ -569,15 +646,15 @@
 					"file": "content/overlay.js",
 					"settings":
 					{
-						"buffer_size": 1738,
+						"buffer_size": 3203,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								822,
-								822
+								740,
+								740
 							]
 						],
 						"settings":
@@ -587,25 +664,81 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 90.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "content/form.xul",
+					"file": "content/options.xul",
 					"settings":
 					{
-						"buffer_size": 1537,
+						"buffer_size": 5654,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								116,
-								116
+								315,
+								315
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "content/options.js",
+					"settings":
+					{
+						"buffer_size": 822,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								461,
+								461
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "content/form.xul",
+					"settings":
+					{
+						"buffer_size": 2312,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1842,
+								1842
 							]
 						],
 						"settings":
@@ -620,19 +753,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 6,
 					"file": "content/form.js",
 					"settings":
 					{
-						"buffer_size": 8476,
+						"buffer_size": 9703,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1801,
-								1801
+								1010,
+								1010
 							]
 						],
 						"settings":
@@ -641,41 +774,13 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3317.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "content/options.xul",
-					"settings":
-					{
-						"buffer_size": 5301,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								563,
-								563
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/XML/XML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 255.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "content/filters.js",
 					"settings":
 					{
@@ -700,6 +805,33 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "skin/form.css",
+					"settings":
+					{
+						"buffer_size": 995,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								550,
+								550
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
 				}
 			]
 		},
@@ -708,19 +840,19 @@
 			"sheets":
 			[
 				{
-					"buffer": 7,
+					"buffer": 9,
 					"file": "content/PocketChange.js",
 					"settings":
 					{
-						"buffer_size": 11469,
+						"buffer_size": 15023,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5807,
-								5807
+								2686,
+								2686
 							]
 						],
 						"settings":
@@ -729,13 +861,13 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 6070.0,
+						"translation.y": 1135.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 10,
 					"file": "defaults/preferences/pocketchange.js",
 					"settings":
 					{

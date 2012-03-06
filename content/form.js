@@ -82,7 +82,7 @@ PocketChangeChrome.FormOverlay = {
 	},	
 
 	appendProjects : function(projects) {
-		var projectList,projectPopup, projectTitle;
+		var projectList,projectPopup, projectTitle, projectTooltip;
 
 		// Initialize menulist		
 		$projectList = jQuery("<menulist>").attr({
@@ -102,15 +102,16 @@ PocketChangeChrome.FormOverlay = {
 				PocketChange.ProjectsController.selectedProject(curProject);
 			}
 
-			// Format project title
-			projectTitle = PocketChange.Helper.html_entity_decode(curProject.title);			
+			// Format project title and tooltip
+			projectTitle = PocketChange.Helper.html_entity_decode(curProject.title);
+			projectTooltip = PocketChange.Helper.html_entity_decode(curProject.fulfillmentTrailer);
 
 			// Build project
 			$newProject = jQuery("<menuitem>").attr({				
 				label : projectTitle,
 				value : curProject.id,
 				class : 'project-item',
-				tooltiptext : curProject.fulfillmentTrailer,
+				tooltiptext : projectTooltip,
 				selected : (key == 0)
 			});
 

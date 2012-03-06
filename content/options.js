@@ -30,8 +30,8 @@ PocketChangeChrome.OptionsOverlay = {
     var email, pass;
 
     email = jQuery("#email").val();
-    pass = jQuery("#password").val();
-    
+    pass = jQuery("#password").val();    
+
     PocketChange.Account.storeLogin(email, pass);
   }
   

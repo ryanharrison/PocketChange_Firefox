@@ -68,6 +68,9 @@
         type="password"        
         emptytext="Password"
       />
+      
+      <!-- DELETE ACCOUNT -->
+      <button label="Delete Account" />
 
       <!--  FACEBOOK SHARE    -->
       <checkbox 

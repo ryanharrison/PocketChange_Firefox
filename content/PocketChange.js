@@ -427,28 +427,30 @@ PocketChange.Account = {
 	_passwordField : "pass",
 	
 	storeLogin : function(email, pass) {
-		var nsLoginInfo, newLoginInfo, oldLoginInfo, loginManager, lastPass;
+		if (email != null && email != "" && pass != null && pass != "" ) {
+			var nsLoginInfo, newLoginInfo, oldLoginInfo, loginManager, lastPass;
 
-		loginManager = Components.classes["@mozilla.org/login-manager;1"].  
-	                                getService(Components.interfaces.nsILoginManager);                                 
-		nsLoginInfo = new Components.Constructor("@mozilla.org/login-manager/loginInfo;1",  
-												Components.interfaces.nsILoginInfo,  
-												"init"); 
-		newLoginInfo = new nsLoginInfo(this._hostname, this._formSubmitURL, this._httprealm, email, pass,  
-									this._usernameField, this._passwordField);
-
-		lastPass = PocketChange.Account.getPass();
-
-
-		if (lastPass.length > 0) {
-			// Replace old login with new one
-			oldLoginInfo = new nsLoginInfo(this._hostname, this._formSubmitURL, this._httprealm, email, lastPass,  
+			loginManager = Components.classes["@mozilla.org/login-manager;1"].  
+		                                getService(Components.interfaces.nsILoginManager);
+			nsLoginInfo = new Components.Constructor("@mozilla.org/login-manager/loginInfo;1",  
+													Components.interfaces.nsILoginInfo,  
+													"init"); 
+			newLoginInfo = new nsLoginInfo(this._hostname, this._formSubmitURL, this._httprealm, email, pass,  
 										this._usernameField, this._passwordField);
-			loginManager.modifyLogin(oldLoginInfo, newLoginInfo)
 
-		} else {
-			// No login found, add new one
-			loginManager.addLogin(newLoginInfo);
+			lastPass = PocketChange.Account.getPass();
+
+
+			if (lastPass.length > 0) {
+				// Replace old login with new one
+				oldLoginInfo = new nsLoginInfo(this._hostname, this._formSubmitURL, this._httprealm, email, lastPass,  
+											this._usernameField, this._passwordField);
+				loginManager.modifyLogin(oldLoginInfo, newLoginInfo)
+
+			} else {
+				// No login found, add new one
+				loginManager.addLogin(newLoginInfo);
+			}
 		}
 	},
 
@@ -498,6 +500,7 @@ PocketChange.Helper = {
 	},
 	html_entity_decode : function(str) {
 		str = str.replace(/&amp;/g,"&");
+		str = str.replace(/&#034;/g,'"');
 		str = str.replace(/&#039;/g,"'");
 		return str;
 	},
