@@ -162,8 +162,7 @@ PocketChange.ButtonController = {
 
 PocketChange.FormController = {
 	_formWidth : 600,	// Width in pixels
-	_formHeight : 400,	// Width in pixels
-	_formHeader : 'PocketChange',	
+	_formHeight : 400,	// Height in pixels	
 	_APIKEY : "DONORSCHOOSE",	
 
 	width : function(newWidth) {
@@ -179,14 +178,7 @@ PocketChange.FormController = {
 		} else {
 			this._formHeight = newHeight;
 		}
-	},
-	header : function(newHeader) {
-		if ("undefined" == typeof(newHeader)) {
-			return this._formHeader;
-		} else {
-			this._formHeader = newHeader;
-		}
-	},		
+	},	
 	orderAmount : function(newOrderAmount) {
 		if ("undefined" == typeof(newOrderAmount)) {			
 			var pref;
@@ -520,14 +512,10 @@ PocketChange.Helper = {
 		browser.selectedTab = tab;
 	},
 	isAmazon : function(url) {
-		var t1,t2;
-		
+		var t1;		
 		// If found, t1 is true
-		t1 = (url.indexOf("amazon.com") >= 0);
-		// If found, t2 is true
-		t2 = (url.indexOf("ref=ox_shipaddress_ship_to_this_3") >= 0);
-		
-		return (t1 && t2);
+		t1 = (url.indexOf("amazon.com") >= 0);		
+		return t1;
 	},
 	isOrderButton : function(e) {
 		var expectedName = "placeYourOrder";		
