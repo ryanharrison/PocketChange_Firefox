@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>   
-<prefwindow xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" onbeforeaccept="PocketChangeChrome.OptionsOverlay.storeLogin()" title="PocketChange Options">
+<prefwindow xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" onbeforeaccept="PocketChangeChrome.OptionsOverlay.storeLogin()" title="PocketChange Settings">
   
   
   <prefpane id="general-pane" label="Account"  image="chrome://pocketchange/content/images/icon_general.png">
@@ -69,8 +69,8 @@
         emptytext="Password"
       />
       
-      <!-- DELETE ACCOUNT -->
-      <button label="Delete Account" />
+      <!-- REMOVE ACCOUNT -->
+      <button label="Remove Account" />
 
       <!--  FACEBOOK SHARE    -->
       <checkbox 
