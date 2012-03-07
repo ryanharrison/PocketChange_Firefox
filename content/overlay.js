@@ -99,10 +99,11 @@ PocketChangeChrome.BrowserOverlay = {
     if (PocketChange.Helper.isEnabled()) {
       var formWidth;
       formWidth = PocketChange.FormController.width();
+      formHeight = PocketChange.FormController.height();
       window.open(
         "chrome://pocketchange/content/form.xul"
         ,"pcForm"
-        ,"chrome,width="+formWidth+",height=600"
+        ,"chrome,width="+formWidth+",height="+formHeight
       );
     }
   }

@@ -162,6 +162,7 @@ PocketChange.ButtonController = {
 
 PocketChange.FormController = {
 	_formWidth : 600,	// Width in pixels
+	_formHeight : 400,	// Width in pixels
 	_formHeader : 'PocketChange',	
 	_APIKEY : "DONORSCHOOSE",	
 
@@ -171,7 +172,14 @@ PocketChange.FormController = {
 		} else {
 			this._formWidth = newWidth;
 		}
-	},	
+	},
+	height : function(newHeight) {
+		if ("undefined" == typeof(newHeight)) {
+			return this._formHeight;
+		} else {
+			this._formHeight = newHeight;
+		}
+	},
 	header : function(newHeader) {
 		if ("undefined" == typeof(newHeader)) {
 			return this._formHeader;
